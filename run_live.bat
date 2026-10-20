@@ -1,16 +1,9 @@
 @echo off
-title PulmoTwin Live Platform
+title PulmoTwin Digital Twin - Happiest Health Challenge 2026
 echo ==========================================================
-echo    Starting PulmoTwin: Live Connected Cloud Platform
+echo    Starting PulmoTwin: Live Cardiopulmonary Digital Twin
+echo    Happiest Health Summit 2026 - Bengaluru
 echo ==========================================================
-cd /d "%~dp0"
 
-echo [1/2] Starting Flask Backend in background...
-start "PulmoTwin Backend" /B ".\venv\Scripts\python.exe" app.py
-
-echo Waiting for Flask to initialize on port 7860...
-timeout /t 4 /nobreak >nul
-
-echo [2/2] Launching Cloudflare Public HTTPS Tunnel...
-".\cloudflared_win.exe" tunnel --url http://127.0.0.1:7860
+powershell -ExecutionPolicy Bypass -File "%~dp0run_live.ps1"
 pause

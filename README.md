@@ -24,7 +24,7 @@ Updated: October 2026 • Certified Clean Submission
 ### 🏆 Official Submission for Digital Twin Challenge 2026
 **Happiest Health • Reimagining & Reforming Healthcare in India Summit 2026, Bengaluru**
 
-[📺 Demo Video (Unlisted YouTube)](#-2-1520-minute-official-demo-video) • [📑 Presentation PDF (Pitch Deck)](docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf) • [🏗️ Architecture Diagram (PDF)](docs/Architecture_Diagram.pdf) • [📋 Demo Video Script](docs/DEMO_VIDEO_SCRIPT.md)
+[🌐 **Live Interactive Prototype (HTTPS)**](https://polite-kids-act.loca.lt) • [📺 Demo Video (Unlisted YouTube)](#-2-1520-minute-official-demo-video) • [📑 Presentation PDF (Pitch Deck)](docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf) • [🏗️ Architecture Diagram (PDF)](docs/Architecture_Diagram.pdf) • [📋 Demo Video Script](docs/DEMO_VIDEO_SCRIPT.md)
 
 </div>
 
