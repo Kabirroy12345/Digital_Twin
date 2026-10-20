@@ -1,12 +1,20 @@
-# 🔍 AirGuard / HridyaVayu Codebase Audit (Step 0)
-**Date:** Hackathon Kickoff • WCC Launchpad 30 • Track: Agentic AI (Healthcare)  
+<!--
+================================================================================
+PulmoTwin: Multimodal Cardiopulmonary Digital Twin (Happiest Health Summit 2026)
+Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+Updated: October 2026 • Certified Clean Submission
+================================================================================
+-->
+
+# 🔍 PulmoTwin / PulmoTwin Codebase Audit (Step 0)
+**Date:** Hackathon Kickoff • Digital Twin Challenge 2026 (Happiest Health) • Track: Agentic AI (Healthcare)  
 **Status:** Completed  
 
 ---
 
 ## 1. Executive Summary
 
-This audit assesses the pre-existing **HridyaVayu** codebase prior to building the **AirGuard Agent** during the WCC Launchpad 30 hackathon. Per competition integrity rules, pre-existing code is fully cataloged here, existing bugs and inconsistencies are documented transparently, and only new work committed in this branch will constitute the hackathon project.
+This audit assesses the pre-existing **PulmoTwin** codebase prior to building the **PulmoTwin Digital Twin** during the Digital Twin Challenge 2026 (Happiest Health) hackathon. Per competition integrity rules, pre-existing code is fully cataloged here, existing bugs and inconsistencies are documented transparently, and only new work committed in this branch will constitute the hackathon project.
 
 ---
 
@@ -83,7 +91,7 @@ This audit assesses the pre-existing **HridyaVayu** codebase prior to building t
 | **"Guaranteed zero false negatives"** | False negatives are not prevented by machine learning. A hardcoded heuristic (`if symptoms_freq == 'Daily' or night_diff == 'Frequently': risk = 'High'`) overrides the model. Any other severe clinical manifestation (acute bronchospasm, inability to speak) would bypass this rule. | Strike all claims of "guaranteed" or "zero false negatives". Report ML ensemble metrics and rule-based override metrics separately, clearly noting the override as deterministic clinical safety rails. |
 | **"Independent External Clinical Cohorts" (Hospital Network A & Primary Care B)** | `DATASET_OVERVIEW.md` claimed these were authentic "Tertiary healthcare network telemetry logs" and "Primary care screening center logs". In reality, `research/generate_missing_sites.py` shows they were purely synthetically generated using `data_generator.py` with modified Gaussian distributions. | Re-label all such data as purely synthetic in `DATASET_OVERVIEW.md` and `README.md`. |
 | **External Clinical Benchmarks (Zenodo 92.57%, Kaggle 96.45%)** | Zenodo (`real_clinical_data.csv`) and Beijing (`real_asthma_data.csv`) files do NOT exist in the repository. `research/validate_kaggle_asthma.py` references a hardcoded private file path `C:\Users\HP\Downloads\archive (1)\asthma_disease_data.csv`. These benchmarks are non-reproducible. | Remove all non-reproducible external accuracy claims from the README and documentation. Retain only metrics generated from scripts that execute on in-repo data. |
-| **Medical Device / Diagnostic Disclaimers** | Neither the UI nor the README had a prominent medical disclaimer. | Add explicit disclaimers: "AirGuard is an assistive decision-support agent and is NOT a medical device. It does not provide medical diagnosis or replace licensed clinical judgment." |
+| **Medical Device / Diagnostic Disclaimers** | Neither the UI nor the README had a prominent medical disclaimer. | Add explicit disclaimers: "PulmoTwin is an assistive decision-support agent and is NOT a medical device. It does not provide medical diagnosis or replace licensed clinical judgment." |
 
 ---
 

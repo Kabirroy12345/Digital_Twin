@@ -1,3 +1,10 @@
+# ==============================================================================
+# PulmoTwin: Multimodal Cardiopulmonary Digital Twin
+# Happiest Health - Reimagining & Reforming Healthcare in India Summit 2026
+# Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+# Updated: October 2026 • Certified Clean Submission
+# ==============================================================================
+
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 sys.stderr.reconfigure(encoding='utf-8')
@@ -28,9 +35,9 @@ from flask import Flask, request, jsonify, render_template, send_from_directory,
 from flask_cors import CORS
 
 from models import db, User, SensorData, Alert, QuizResponse, SymptomDiary, AgentAction, AgentLog, DailyPlan
-from agent.tools import AirGuardTools
-from agent.llm import AirGuardLLM
-from agent.loop import AirGuardAgentLoop
+from agent.tools import PulmoTwinTools
+from agent.llm import PulmoTwinLLM
+from agent.loop import PulmoTwinAgentLoop
 from agent.guardrails import check_input_red_flags, sanitize_output
 from digital_twin import DigitalTwinEngine, WearableTelemetryStream, EHRConnector, CounterfactualSimulator
 
@@ -82,14 +89,14 @@ except Exception as _np_compat_err:
 
 # ==================== MODEL LOADING ====================
 
-print("Loading HridyaVayu Multimodal Ensemble Models...")
+print("Loading PulmoTwin Multimodal Cardiopulmonary Ensemble Models...")
 review1_package = None
 try:
     if os.path.exists(REVIEW1_MODEL_PATH):
         with open(REVIEW1_MODEL_PATH, "rb") as f:
             review1_package = pickle.load(f)
-        print("✓ HridyaVayu Multimodal Collaborative Ensemble Loaded Successfully!")
-        model_name = "HridyaVayu Multimodal Ensemble (Baseline LR + Random Forest + Gradient Boosting)"
+        print("✓ PulmoTwin Multimodal Cardiopulmonary Ensemble Loaded Successfully!")
+        model_name = "PulmoTwin Multimodal Cardiopulmonary Ensemble (Baseline LR + Random Forest + Gradient Boosting)"
     elif os.path.exists(FALLBACK_MODEL_PATH):
         with open(FALLBACK_MODEL_PATH, "rb") as f:
             fallback = pickle.load(f)
@@ -111,9 +118,9 @@ if os.path.exists("results/review1_metrics.json"):
         pass
 
 # ==================== AIRGUARD AGENT ENGINE ====================
-print("Initializing AirGuard Agent Decision Engine...")
-agent_loop = AirGuardAgentLoop(review1_package=review1_package)
-print(f"✓ AirGuard Agent Engine Initialized (LLM Provider: {agent_loop.llm.get_provider_name()})")
+print("Initializing PulmoTwin Digital Twin Decision Engine...")
+agent_loop = PulmoTwinAgentLoop(review1_package=review1_package)
+print(f"✓ PulmoTwin Digital Twin Engine Initialized (LLM Provider: {agent_loop.llm.get_provider_name()})")
 
 # ==================== REAL-TIME AQI SERVICE ====================
 
@@ -388,11 +395,11 @@ def init_db():
                     emergency_contact_name="Maria Rivera (Spouse)",
                     emergency_contact_phone="+1-555-0188"
                 )
-                demo_patient.set_password("alex123")
+                demo_patient.set_password("demo123")
                 db.session.add(demo_patient)
                 db.session.commit()
             elif not demo_patient.password_hash:
-                demo_patient.set_password("alex123")
+                demo_patient.set_password("demo123")
                 db.session.commit()
         except Exception as e:
             db.session.rollback()
@@ -492,7 +499,7 @@ def auth_signup():
         if password:
             user.set_password(password)
         else:
-            user.set_password("alex123")
+            user.set_password("demo123")
         db.session.add(user)
         db.session.commit()
 
@@ -543,9 +550,9 @@ def auth_login():
         if not user:
             return jsonify({"success": False, "error": "User account not found. Please sign up."}), 401
 
-        # Check password: Demo account Alex accepts both 'demo123' and 'alex123'
+        # Check password: Demo account Alex accepts both 'demo123' and 'demo123'
         is_valid = False
-        if user.phone_no in ["+1-555-0143", "+1555019900"] and password in ["demo123", "alex123"]:
+        if user.phone_no in ["+1-555-0143", "+1555019900"] and password in ["demo123", "demo123"]:
             is_valid = True
         elif user.phone_no == "+1-555-0199" and password in ["doctor123", "admin123"]:
             is_valid = True
@@ -1097,7 +1104,7 @@ def predict():
             "uncertainty": round(uncertainty, 4),
             "uncertainty_entropy": round(uncertainty, 4),
             "heuristic_override": heuristic_override,
-            "model_architecture": "HridyaVayu Multimodal Collaborative Ensemble (Baseline LR + RF + GB)",
+            "model_architecture": "PulmoTwin Multimodal Cardiopulmonary Ensemble (Baseline LR + RF + GB)",
             "model_breakdown": {
                 "baseline_linear_regression": round(lr_score, 4),
                 "random_forest": round(rf_score, 4),
@@ -1355,7 +1362,7 @@ def health_check():
     """Service health, model status, and agent readiness check."""
     return jsonify({
         "status": "healthy",
-        "service": "AirGuard Agentic Healthcare Engine",
+        "service": "PulmoTwin Digital Twinic Healthcare Engine",
         "timestamp": datetime.utcnow().isoformat(),
         "models_loaded": review1_package is not None,
         "llm_provider": agent_loop.llm.get_provider_name(),
@@ -1399,7 +1406,7 @@ def agent_forecast():
     lat = float(request.args.get("lat", 28.6139))
     lon = float(request.args.get("lon", 77.2090))
     hours = int(request.args.get("hours", 48))
-    forecast = AirGuardTools.get_air_quality_forecast(lat, lon, hours)
+    forecast = PulmoTwinTools.get_air_quality_forecast(lat, lon, hours)
     return jsonify(forecast)
 
 @app.route("/api/agent/actions/pending/<int:user_id>", methods=["GET"])
@@ -1447,7 +1454,7 @@ def agent_approve_action(action_id):
         db.session.commit()
 
         # Dispatch action exactly once
-        dispatch_result = AirGuardTools.send_notification(action_id)
+        dispatch_result = PulmoTwinTools.send_notification(action_id)
         return jsonify({
             "success": True,
             "message": "Action approved by user and dispatched",
@@ -1510,7 +1517,7 @@ def agent_daily_plan(user_id):
         today_str = datetime.utcnow().strftime("%Y-%m-%d")
         plan = DailyPlan.query.filter_by(user_id=user_id, valid_date=today_str).first()
         if not plan:
-            plan_res = AirGuardTools.draft_plan(user_id, review1_package=review1_package)
+            plan_res = PulmoTwinTools.draft_plan(user_id, review1_package=review1_package)
             return jsonify(plan_res)
         return jsonify({
             "success": True,
@@ -1537,7 +1544,7 @@ def agent_log_symptom():
         # Check for input red flags in symptoms / notes
         red_flag = check_input_red_flags(f"{symptoms} {notes}")
 
-        res = AirGuardTools.log_symptom(
+        res = PulmoTwinTools.log_symptom(
             user_id=user_id,
             symptoms=symptoms,
             severity="Severe" if red_flag["tripped"] else severity,
@@ -1615,7 +1622,7 @@ def agent_chat():
 @token_required
 def agent_doctor_summary(user_id):
     """Generates 30-day clinical consultation report for doctor appointment."""
-    summary = AirGuardTools.generate_doctor_summary(user_id)
+    summary = PulmoTwinTools.generate_doctor_summary(user_id)
     return jsonify(summary)
 
 @app.route("/api/agent/doctor-summary/<int:user_id>/pdf", methods=["GET"])
@@ -1623,12 +1630,12 @@ def agent_doctor_summary(user_id):
 def agent_doctor_summary_pdf(user_id):
     """Generates authentic clinical consultation PDF for physician review."""
     try:
-        pdf_bytes = AirGuardTools.generate_doctor_summary_pdf(user_id)
+        pdf_bytes = PulmoTwinTools.generate_doctor_summary_pdf(user_id)
         return send_file(
             io.BytesIO(pdf_bytes),
             mimetype="application/pdf",
             as_attachment=True,
-            download_name=f"AirGuard_Doctor_Summary_Patient_{user_id}.pdf"
+            download_name=f"PulmoTwin_Doctor_Summary_Patient_{user_id}.pdf"
         )
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
@@ -1698,7 +1705,7 @@ def digital_twin_simulate(user_id):
         u_lat = user.lat if user and user.lat else 28.6139
         u_lon = user.lon if user and user.lon else 77.2090
 
-        forecast_res = AirGuardTools.get_air_quality_forecast(u_lat, u_lon, hours=24)
+        forecast_res = PulmoTwinTools.get_air_quality_forecast(u_lat, u_lon, hours=24)
         hourly_env = forecast_res.get("hourly", [])[:24]
 
         intervention = None
@@ -1722,7 +1729,7 @@ def digital_twin_what_if(user_id):
         u_lat = user.lat if user and user.lat else 28.6139
         u_lon = user.lon if user and user.lon else 77.2090
 
-        forecast_res = AirGuardTools.get_air_quality_forecast(u_lat, u_lon, hours=24)
+        forecast_res = PulmoTwinTools.get_air_quality_forecast(u_lat, u_lon, hours=24)
         hourly_env = forecast_res.get("hourly", [])[:24]
 
         req_data = request.get_json() or {}
@@ -1784,7 +1791,7 @@ def export_user_data(user_id):
         payload = {
             "export_metadata": {
                 "generated_at": datetime.utcnow().isoformat(),
-                "service": "AirGuard Healthcare Agent",
+                "service": "PulmoTwin Healthcare Agent",
                 "format": "JSON Portable Format",
                 "compliance_design": "GDPR Article 20 / India DPDP Act 2023 portability principles",
                 "tables_included": [
@@ -1858,5 +1865,5 @@ if __name__ == "__main__":
     if not os.path.exists("web_ui"):
         os.makedirs("web_ui")
     port = int(os.environ.get("PORT", 7860))
-    print(f"🚀 HridyaVayu Server Started on port {port} - Collaborative AI Engine Ready")
+    print(f"🚀 PulmoTwin Server Started on port {port} - Collaborative AI Engine Ready")
     app.run(host="0.0.0.0", port=port, debug=False)

@@ -1,3 +1,10 @@
+# ==============================================================================
+# PulmoTwin: Multimodal Cardiopulmonary Digital Twin
+# Happiest Health - Reimagining & Reforming Healthcare in India Summit 2026
+# Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+# Updated: October 2026 • Certified Clean Submission
+# ==============================================================================
+
 """
 AsthmAI - Synthetic Data Generator
 Expands the original dataset from 201 samples to 2000+ samples

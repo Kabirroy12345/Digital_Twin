@@ -1,3 +1,10 @@
+# ==============================================================================
+# PulmoTwin: Multimodal Cardiopulmonary Digital Twin
+# Happiest Health - Reimagining & Reforming Healthcare in India Summit 2026
+# Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+# Updated: October 2026 • Certified Clean Submission
+# ==============================================================================
+
 """
 Generates the official Hackathon Presentation PDF:
 docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf

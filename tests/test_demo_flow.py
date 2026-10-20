@@ -1,6 +1,13 @@
+# ==============================================================================
+# PulmoTwin: Multimodal Cardiopulmonary Digital Twin
+# Happiest Health - Reimagining & Reforming Healthcare in India Summit 2026
+# Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+# Updated: October 2026 • Certified Clean Submission
+# ==============================================================================
+
 #!/usr/bin/env python3
 """
-AirGuard Agent - End-to-End Demo Flow Verification
+PulmoTwin Digital Twin - End-to-End Demo Flow Verification
 Simulates the exact judge / user interaction flow:
 1. Log in as Alex Rivera
 2. Fetch 24h air quality forecast and safest window
@@ -22,7 +29,7 @@ from app import app
 from models import db, User, AgentAction
 
 def run_e2e_verification():
-    print("[*] Starting AirGuard End-to-End Flow Verification...")
+    print("[*] Starting PulmoTwin End-to-End Flow Verification...")
     client = app.test_client()
 
     with app.app_context():

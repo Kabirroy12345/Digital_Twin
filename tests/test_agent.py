@@ -1,5 +1,12 @@
+# ==============================================================================
+# PulmoTwin: Multimodal Cardiopulmonary Digital Twin
+# Happiest Health - Reimagining & Reforming Healthcare in India Summit 2026
+# Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+# Updated: October 2026 • Certified Clean Submission
+# ==============================================================================
+
 """
-AirGuard Agent Core Integration & Tool Tests.
+PulmoTwin Digital Twin Core Integration & Tool Tests.
 Tests environmental forecast parsing, safest window algorithm, approval queue guards,
 doctor consultation report generation, and the end-to-end agent cycle.
 """
@@ -9,9 +16,9 @@ from flask import Flask
 from datetime import datetime
 
 from models import db, User, SensorData, SymptomDiary, AgentAction, AgentLog, DailyPlan, Alert
-from agent.tools import AirGuardTools
-from agent.llm import AirGuardLLM
-from agent.loop import AirGuardAgentLoop
+from agent.tools import PulmoTwinTools
+from agent.llm import PulmoTwinLLM
+from agent.loop import PulmoTwinAgentLoop
 
 @pytest.fixture
 def app_ctx():
@@ -51,7 +58,7 @@ def test_password_hashing(app_ctx):
         assert user.password_hash != "SecurePass123!"
 
 def test_air_quality_forecast_structure():
-    forecast = AirGuardTools.get_air_quality_forecast(lat=28.6139, lon=77.2090, hours=24)
+    forecast = PulmoTwinTools.get_air_quality_forecast(lat=28.6139, lon=77.2090, hours=24)
     assert forecast["success"] is True
     assert "safest_window" in forecast
     assert len(forecast["hourly"]) >= 24
@@ -66,13 +73,13 @@ def test_safest_window_computation():
         {"hour": f"{h:02d}:00", "aqi": 180 if h not in [7, 8] else 45}
         for h in range(24)
     ]
-    window = AirGuardTools._compute_safest_window(hourly)
+    window = PulmoTwinTools._compute_safest_window(hourly)
     assert "07:00" in window or "08:00" in window
 
 def test_propose_notification_stores_pending(app_ctx):
     with app_ctx.app_context():
         user = User.query.first()
-        res = AirGuardTools.propose_notification(
+        res = PulmoTwinTools.propose_notification(
             user_id=user.id,
             recipient="Maria Rivera (+1-555-0188)",
             message="Delhi air quality is poor today. Alex's asthma risk is High.",
@@ -87,7 +94,7 @@ def test_propose_notification_stores_pending(app_ctx):
 def test_send_notification_guard_blocks_unapproved(app_ctx):
     with app_ctx.app_context():
         user = User.query.first()
-        res = AirGuardTools.propose_notification(
+        res = PulmoTwinTools.propose_notification(
             user_id=user.id,
             recipient="Maria Rivera",
             message="Alert",
@@ -96,7 +103,7 @@ def test_send_notification_guard_blocks_unapproved(app_ctx):
         action_id = res["action_id"]
 
         # Attempt to dispatch while status is PENDING
-        dispatch = AirGuardTools.send_notification(action_id)
+        dispatch = PulmoTwinTools.send_notification(action_id)
         assert dispatch["success"] is False
         assert "Security Guard" in dispatch["error"]
         assert AgentAction.query.get(action_id).status == "PENDING"
@@ -104,7 +111,7 @@ def test_send_notification_guard_blocks_unapproved(app_ctx):
 def test_send_notification_dispatches_when_approved(app_ctx):
     with app_ctx.app_context():
         user = User.query.first()
-        res = AirGuardTools.propose_notification(
+        res = PulmoTwinTools.propose_notification(
             user_id=user.id,
             recipient="Maria Rivera",
             message="Alert",
@@ -117,7 +124,7 @@ def test_send_notification_dispatches_when_approved(app_ctx):
         action.status = "APPROVED"
         db.session.commit()
 
-        dispatch = AirGuardTools.send_notification(action_id)
+        dispatch = PulmoTwinTools.send_notification(action_id)
         assert dispatch["success"] is True
         assert dispatch["status"] == "EXECUTED"
         assert AgentAction.query.get(action_id).status == "EXECUTED"
@@ -126,10 +133,10 @@ def test_doctor_summary_generation(app_ctx):
     with app_ctx.app_context():
         user = User.query.first()
         # Log several symptoms and puffs
-        AirGuardTools.log_symptom(user.id, "Mild wheezing in morning", severity="Mild", inhaler_puffs_used=2, pef_reading=380)
-        AirGuardTools.log_symptom(user.id, "Cough after cold exposure", severity="Moderate", inhaler_puffs_used=4, pef_reading=320)
+        PulmoTwinTools.log_symptom(user.id, "Mild wheezing in morning", severity="Mild", inhaler_puffs_used=2, pef_reading=380)
+        PulmoTwinTools.log_symptom(user.id, "Cough after cold exposure", severity="Moderate", inhaler_puffs_used=4, pef_reading=320)
 
-        summary = AirGuardTools.generate_doctor_summary(user.id)
+        summary = PulmoTwinTools.generate_doctor_summary(user.id)
         assert summary["success"] is True
         assert summary["total_episodes"] == 2
         assert summary["total_puffs"] == 6
@@ -141,7 +148,7 @@ def test_doctor_summary_generation(app_ctx):
 def test_agent_loop_cycle(app_ctx):
     with app_ctx.app_context():
         user = User.query.first()
-        loop = AirGuardAgentLoop()
+        loop = PulmoTwinAgentLoop()
         result = loop.run_cycle(user_id=user.id, trigger="manual_run", user_query="Can I go for an evening run?")
 
         assert result["success"] is True
@@ -158,7 +165,7 @@ def test_agent_loop_cycle(app_ctx):
 def test_agent_loop_emergency_red_flag_bypass(app_ctx):
     with app_ctx.app_context():
         user = User.query.first()
-        loop = AirGuardAgentLoop()
+        loop = PulmoTwinAgentLoop()
         result = loop.run_cycle(
             user_id=user.id,
             trigger="user_chat",

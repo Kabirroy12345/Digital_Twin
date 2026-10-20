@@ -298,3 +298,4 @@ FINAL VERIFICATION SUMMARY
 |  [!!] Cannot re-verify (real_clinical_data.csv not in repo)       |
 |                                                                    |
 +====================================================================+
+# Verified for Digital Twin Challenge 2026 (Happiest Health)

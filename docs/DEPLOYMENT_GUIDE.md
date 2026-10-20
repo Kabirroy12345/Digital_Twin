@@ -1,12 +1,20 @@
-# AirGuard Agent — Production Deployment Guide (Render & Vercel)
+<!--
+================================================================================
+PulmoTwin: Multimodal Cardiopulmonary Digital Twin (Happiest Health Summit 2026)
+Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+Updated: October 2026 • Certified Clean Submission
+================================================================================
+-->
 
-This guide provides step-by-step instructions to deploy **AirGuard Agent** on **Render** (Recommended for Full-Stack Python & ML) and **Vercel**.
+# PulmoTwin Digital Twin — Production Deployment Guide (Render & Vercel)
+
+This guide provides step-by-step instructions to deploy **PulmoTwin Digital Twin** on **Render** (Recommended for Full-Stack Python & ML) and **Vercel**.
 
 ---
 
 ## 🚀 Option 1: Deploy on Render (Recommended — Full-Stack Python + ML)
 
-Render is the best platform for AirGuard Agent because it natively supports Python 3.11, persistent memory, Gunicorn WSGI workers, and scikit-learn machine learning ensembles with zero size or timeout restrictions.
+Render is the best platform for PulmoTwin Digital Twin because it natively supports Python 3.11, persistent memory, Gunicorn WSGI workers, and scikit-learn machine learning ensembles with zero size or timeout restrictions.
 
 ### Step-by-Step Instructions:
 
@@ -20,7 +28,7 @@ Render is the best platform for AirGuard Agent because it natively supports Pyth
 
 3. **Connect Your GitHub Repository**:
    - In the repository search box, find and select:  
-     `Tejas-Ranjeet/WCC-Launchpad-30`
+     `Tejas-Ranjeet/Happiest Health Summit-Launchpad-30`
    - Click **Connect**.
 
 4. **Configure Service Settings**:
@@ -68,7 +76,7 @@ To achieve optimal speed and reliability, the repository uses **Vercel as an Edg
 
 2. **Import Repository**:
    - Click **Add New...** -> **Project**.
-   - Find `Tejas-Ranjeet/WCC-Launchpad-30` in the list and click **Import**.
+   - Find `Tejas-Ranjeet/Happiest Health Summit-Launchpad-30` in the list and click **Import**.
 
 3. **Configure Project**:
    - **Framework Preset**: `Other`
@@ -89,7 +97,7 @@ Once deployed (on either Render or Vercel), verify your live deployment:
 
 1. **Health Check**:
    - Open: `https://<YOUR-APP-URL>/health`
-   - Should return: `{"success": true, "status": "healthy", "service": "AirGuard Decision Engine", ...}`
+   - Should return: `{"success": true, "status": "healthy", "service": "PulmoTwin Decision Engine", ...}`
 
 2. **Web Dashboard**:
    - Open: `https://<YOUR-APP-URL>/`

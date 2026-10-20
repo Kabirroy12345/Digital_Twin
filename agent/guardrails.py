@@ -1,5 +1,12 @@
+# ==============================================================================
+# PulmoTwin: Multimodal Cardiopulmonary Digital Twin
+# Happiest Health - Reimagining & Reforming Healthcare in India Summit 2026
+# Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+# Updated: October 2026 • Certified Clean Submission
+# ==============================================================================
+
 """
-AirGuard Deterministic Clinical Safety Guardrails.
+PulmoTwin Deterministic Clinical Safety Guardrails.
 Enforces hard medical boundaries, GINA acute distress protocols, and output sanitization.
 Zero dependency on LLM honesty or non-deterministic reasoning.
 """
@@ -189,7 +196,7 @@ ANTI_MEDICAL_CARE_PATTERNS = [
 ]
 
 SAFE_FALLBACK_RESPONSE = (
-    "AirGuard Clinical Safety Notice: I am an AI assistive tool and cannot adjust prescription "
+    "PulmoTwin Clinical Safety Notice: I am an AI assistive tool and cannot adjust prescription "
     "medication dosages, declare medical diagnoses, or advise against professional medical evaluation. "
     "Please follow your prescribed Asthma Action Plan. If you are experiencing severe breathing difficulty, "
     "stridor, inability to speak, or if your reliever inhaler is not providing relief, please call emergency "

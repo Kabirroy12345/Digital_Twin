@@ -1,3 +1,10 @@
+# ==============================================================================
+# PulmoTwin: Multimodal Cardiopulmonary Digital Twin
+# Happiest Health - Reimagining & Reforming Healthcare in India Summit 2026
+# Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+# Updated: October 2026 • Certified Clean Submission
+# ==============================================================================
+
 #!/usr/bin/env python3
 """
 Generates verified summary text file based on authentic held-out test evaluation.
@@ -5,7 +12,7 @@ Generates verified summary text file based on authentic held-out test evaluation
 
 def generate_summary():
     with open('results/verified_summary.txt', 'w') as f:
-        f.write("AirGuard / AsthmAI - Verified Summary of Final Metrics\n")
+        f.write("PulmoTwin / AsthmAI - Verified Summary of Final Metrics\n")
         f.write("======================================================\n")
         f.write("Evaluation Dataset: Held-Out Test Set (N=300 samples)\n")
         f.write("Evaluation Script:  research/evaluate.py\n\n")

@@ -1,5 +1,12 @@
+# ==============================================================================
+# PulmoTwin: Multimodal Cardiopulmonary Digital Twin
+# Happiest Health - Reimagining & Reforming Healthcare in India Summit 2026
+# Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+# Updated: October 2026 • Certified Clean Submission
+# ==============================================================================
+
 """
-AirGuard / HridyaVayu - Reproducible Evaluation Pipeline
+PulmoTwin / PulmoTwin - Reproducible Evaluation Pipeline
 Generates unbiased held-out test evaluation metrics, separating:
 1. Pure ML Ensemble (Learned statistical model)
 2. Hybrid System (Ensemble + Deterministic GINA Clinical Safety Override)

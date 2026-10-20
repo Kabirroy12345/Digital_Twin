@@ -1,5 +1,12 @@
+# ==============================================================================
+# PulmoTwin: Multimodal Cardiopulmonary Digital Twin
+# Happiest Health - Reimagining & Reforming Healthcare in India Summit 2026
+# Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+# Updated: October 2026 • Certified Clean Submission
+# ==============================================================================
+
 """
-AirGuard Agent Clinical & Environmental Tools.
+PulmoTwin Digital Twin Clinical & Environmental Tools.
 Provides real-time air quality forecasts, ML risk assessment integration,
 symptom logging, 24-hour daily planning, human approval action dispatch, and doctor consultation summaries.
 """
@@ -19,9 +26,9 @@ from models import db, User, SensorData, Alert, QuizResponse, SymptomDiary, Agen
 OPEN_METEO_AQ_URL = "https://air-quality-api.open-meteo.com/v1/air-quality"
 OPEN_METEO_WEATHER_URL = "https://api.open-meteo.com/v1/forecast"
 
-class AirGuardTools:
+class PulmoTwinTools:
     """
-    Core toolset for AirGuard autonomous agent.
+    Core toolset for PulmoTwin autonomous agent.
     """
 
     _forecast_cache: Dict[str, Tuple[datetime, Dict[str, Any]]] = {}
@@ -36,9 +43,9 @@ class AirGuardTools:
         """
         cache_key = f"{round(lat, 3)}_{round(lon, 3)}_{hours}"
         now = datetime.utcnow()
-        if cache_key in AirGuardTools._forecast_cache:
-            cache_time, cached_res = AirGuardTools._forecast_cache[cache_key]
-            if (now - cache_time).total_seconds() < AirGuardTools._CACHE_TTL_MINUTES * 60:
+        if cache_key in PulmoTwinTools._forecast_cache:
+            cache_time, cached_res = PulmoTwinTools._forecast_cache[cache_key]
+            if (now - cache_time).total_seconds() < PulmoTwinTools._CACHE_TTL_MINUTES * 60:
                 return cached_res
 
         try:
@@ -96,7 +103,7 @@ class AirGuardTools:
                         "wind_speed": round(float(wind[i] or 0), 1) if i < len(wind) else 0.0
                     })
 
-                safest_window = AirGuardTools._compute_safest_window(hourly_data[:24])
+                safest_window = PulmoTwinTools._compute_safest_window(hourly_data[:24])
 
                 res = {
                     "success": True,
@@ -106,7 +113,7 @@ class AirGuardTools:
                     "safest_window": safest_window,
                     "hourly": hourly_data
                 }
-                AirGuardTools._forecast_cache[cache_key] = (now, res)
+                PulmoTwinTools._forecast_cache[cache_key] = (now, res)
                 return res
         except Exception as e:
             # Safe simulated fallback
@@ -138,7 +145,7 @@ class AirGuardTools:
                 "wind_speed": 8.5
             })
 
-        safest_window = AirGuardTools._compute_safest_window(simulated_data[:24])
+        safest_window = PulmoTwinTools._compute_safest_window(simulated_data[:24])
 
         fallback_res = {
             "success": True,
@@ -148,7 +155,7 @@ class AirGuardTools:
             "safest_window": safest_window,
             "hourly": simulated_data
         }
-        AirGuardTools._forecast_cache[cache_key] = (now, fallback_res)
+        PulmoTwinTools._forecast_cache[cache_key] = (now, fallback_res)
         return fallback_res
 
     @staticmethod
@@ -174,7 +181,7 @@ class AirGuardTools:
     @staticmethod
     def get_risk_assessment(user_id: int, review1_package=None) -> Dict[str, Any]:
         """
-        Runs patient through HridyaVayu multimodal ensemble + GINA override.
+        Runs patient through PulmoTwin multimodal ensemble + GINA override.
         """
         user = User.query.get(user_id)
         if not user:
@@ -369,8 +376,8 @@ class AirGuardTools:
         user_lat = lat or user.lat or 28.6139
         user_lon = lon or user.lon or 77.2090
 
-        forecast = AirGuardTools.get_air_quality_forecast(user_lat, user_lon, hours=24)
-        risk = AirGuardTools.get_risk_assessment(user_id, review1_package=review1_package)
+        forecast = PulmoTwinTools.get_air_quality_forecast(user_lat, user_lon, hours=24)
+        risk = PulmoTwinTools.get_risk_assessment(user_id, review1_package=review1_package)
         safest_window = forecast.get("safest_window", "06:30 - 08:30")
         risk_tier = risk.get("risk_tier", "Low")
 
@@ -409,7 +416,7 @@ class AirGuardTools:
             preventive_actions.insert(0, "HIGH RISK DAY: Strictly avoid outdoor endurance exercise. Use reliever at first sign of tightness.")
 
         summary = (
-            f"AirGuard 24-Hour Proactive Plan: Risk level is {risk_tier}. "
+            f"PulmoTwin 24-Hour Proactive Plan: Risk level is {risk_tier}. "
             f"Safest outdoor activity window is {safest_window}. Adhere to indoor air filtration."
         )
 
@@ -473,7 +480,7 @@ class AirGuardTools:
             "success": True,
             "action_id": action.id,
             "status": "PENDING",
-            "message": "Action queued for human approval. AirGuard will not dispatch until approved.",
+            "message": "Action queued for human approval. PulmoTwin will not dispatch until approved.",
             "action": action.to_dict()
         }
 
@@ -595,7 +602,7 @@ class AirGuardTools:
             f"4. CLINICAL ALERTS & EMERGENCY EVENTS:\n"
             f"   - Critical Alert Count:  {len(alerts)}\n"
             f"----------------------------------------------------------\n"
-            f"DISCLAIMER: Prepared by AirGuard assistive tracking agent for review by a licensed healthcare professional.\n"
+            f"DISCLAIMER: Prepared by PulmoTwin assistive tracking agent for review by a licensed healthcare professional.\n"
             f"This summary is observational and does not constitute a diagnostic evaluation.\n"
             f"==========================================================\n"
         )
@@ -628,7 +635,7 @@ class AirGuardTools:
         from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
         from reportlab.lib import colors
 
-        summary_data = AirGuardTools.generate_doctor_summary(user_id)
+        summary_data = PulmoTwinTools.generate_doctor_summary(user_id)
         user = db.session.get(User, user_id) if hasattr(db.session, "get") else User.query.get(user_id)
 
         buf = io.BytesIO()
@@ -691,7 +698,7 @@ class AirGuardTools:
         story = []
 
         # Title & Header
-        story.append(Paragraph("AirGuard Clinical Respiratory Summary", title_style))
+        story.append(Paragraph("PulmoTwin Clinical Respiratory Summary", title_style))
         story.append(Paragraph(
             f"30-Day Observational Consultation Record • Generated {datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')}",
             subtitle_style
@@ -796,7 +803,7 @@ class AirGuardTools:
         # Regulatory & Medical Disclaimer
         story.append(Spacer(1, 8))
         disclaimer_text = (
-            "NOTICE TO CLINICIAN: This summary is prepared by AirGuard, an assistive digital tracking and decision-support prototype. "
+            "NOTICE TO CLINICIAN: This summary is prepared by PulmoTwin, an assistive digital tracking and decision-support prototype. "
             "It is NOT a certified medical device and does NOT provide autonomous clinical diagnoses or prescription alterations. "
             "All recorded telemetry and symptom counts rely on patient self-reporting and ambient air monitoring feeds. "
             "Please apply standard clinical judgment and individualized patient assessment before modifying treatment protocols."

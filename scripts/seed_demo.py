@@ -1,6 +1,13 @@
+# ==============================================================================
+# PulmoTwin: Multimodal Cardiopulmonary Digital Twin
+# Happiest Health - Reimagining & Reforming Healthcare in India Summit 2026
+# Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+# Updated: October 2026 • Certified Clean Submission
+# ==============================================================================
+
 #!/usr/bin/env python3
 """
-AirGuard Agent - Demo Seed Script
+PulmoTwin Digital Twin - Demo Seed Script
 Seeds a realistic 30-day patient journey for demo user Alex Rivera.
 Includes symptom diaries, peak flow history, sensor records, past agent approvals,
 and a fresh PENDING action ready for live judge interaction.
@@ -29,7 +36,7 @@ def create_demo_app():
 def seed_database():
     app = create_demo_app()
     with app.app_context():
-        print("[*] Initializing AirGuard database tables...")
+        print("[*] Initializing PulmoTwin database tables...")
         db.create_all()
 
         # 1. Create or update Demo User (Alex Rivera)
@@ -186,7 +193,7 @@ def seed_database():
                 "action_type": "caregiver_alert",
                 "recipient": "Dr. Sarah Patel (Emergency Pulmonologist Contact)",
                 "channel": "sms",
-                "payload": "AirGuard Health Alert: Alex Rivera reported PEF drop to 385 L/min (79% of personal best) accompanied by 3 rescue inhaler puffs during high smog episode.",
+                "payload": "PulmoTwin Health Alert: Alex Rivera reported PEF drop to 385 L/min (79% of personal best) accompanied by 3 rescue inhaler puffs during high smog episode.",
                 "reasoning": "Symptom diary triggered GINA Yellow Zone criteria: PEF < 80% baseline and repeated albuterol administration within 24h.",
                 "status": "EXECUTED",
                 "decided_offset": 18,
@@ -240,7 +247,7 @@ def seed_database():
             action_type="routine_reschedule",
             recipient="Alex Rivera (In-App & SMS)",
             channel="sms",
-            proposed_payload="AirGuard 24h Advisory: PM2.5 is projected to peak at 142 µg/m³ (AQI 195 - Unhealthy) between 17:00 and 21:00 due to evening temperature inversion and traffic. Recommended action: Reschedule evening outdoor cardio to tomorrow morning 06:30-08:30 AM (Safest Air Window, projected AQI 62). Ensure rescue inhaler is in your bag when commuting.",
+            proposed_payload="PulmoTwin 24h Advisory: PM2.5 is projected to peak at 142 µg/m³ (AQI 195 - Unhealthy) between 17:00 and 21:00 due to evening temperature inversion and traffic. Recommended action: Reschedule evening outdoor cardio to tomorrow morning 06:30-08:30 AM (Safest Air Window, projected AQI 62). Ensure rescue inhaler is in your bag when commuting.",
             reasoning="Open-Meteo 48-hour forecast detects an evening particulate concentration spike. Alex's historical records indicate an 80% probability of requiring reliever medication when exposed to AQI > 150. Proposing schedule shift to protect respiratory capacity.",
             status="PENDING",
             decided_at=None,

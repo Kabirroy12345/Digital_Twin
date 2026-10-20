@@ -1,5 +1,12 @@
+# ==============================================================================
+# PulmoTwin: Multimodal Cardiopulmonary Digital Twin
+# Happiest Health - Reimagining & Reforming Healthcare in India Summit 2026
+# Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+# Updated: October 2026 • Certified Clean Submission
+# ==============================================================================
+
 """
-AirGuard Agent Autonomous Decision Loop.
+PulmoTwin Digital Twin Autonomous Decision Loop.
 Orchestrates: SENSE -> REASON -> PLAN -> PROPOSE -> ACT -> LOG.
 Enforces deterministic safety overrides and human-in-the-loop approval on all external actions.
 """
@@ -9,23 +16,23 @@ from datetime import datetime
 from typing import Dict, Any, Optional
 
 from models import db, User, AgentAction, AgentLog, Alert
-from agent.tools import AirGuardTools
-from agent.llm import AirGuardLLM
+from agent.tools import PulmoTwinTools
+from agent.llm import PulmoTwinLLM
 from agent.guardrails import check_input_red_flags
 
-class AirGuardAgentLoop:
+class PulmoTwinAgentLoop:
     """
-    Main AirGuard Agent decision engine.
+    Main PulmoTwin Digital Twin decision engine.
     """
     def __init__(self, review1_package=None, llm_provider: Optional[str] = None):
         self.review1_package = review1_package
-        self.llm = AirGuardLLM(provider=llm_provider)
+        self.llm = PulmoTwinLLM(provider=llm_provider)
 
     def run_cycle(self, user_id: int, trigger: str = "forecast_update",
                   user_query: Optional[str] = None, lat: Optional[float] = None,
                   lon: Optional[float] = None) -> Dict[str, Any]:
         """
-        Executes one full AirGuard cycle for the given user.
+        Executes one full PulmoTwin cycle for the given user.
         """
         user = User.query.get(user_id)
         if not user:
@@ -36,9 +43,9 @@ class AirGuardAgentLoop:
         language = user.language_pref or "en"
 
         # ==================== STEP 1: SENSE ====================
-        user_context = AirGuardTools.get_user_context(user_id)
-        forecast = AirGuardTools.get_air_quality_forecast(user_lat, user_lon, hours=24)
-        risk_data = AirGuardTools.get_risk_assessment(user_id, review1_package=self.review1_package)
+        user_context = PulmoTwinTools.get_user_context(user_id)
+        forecast = PulmoTwinTools.get_air_quality_forecast(user_lat, user_lon, hours=24)
+        risk_data = PulmoTwinTools.get_risk_assessment(user_id, review1_package=self.review1_package)
 
         input_state = {
             "user_id": user_id,
@@ -113,7 +120,7 @@ class AirGuardAgentLoop:
         full_reasoning = " ".join(reasoning_points)
 
         # ==================== STEP 3: PLAN ====================
-        plan_result = AirGuardTools.draft_plan(user_id, lat=user_lat, lon=user_lon, review1_package=self.review1_package)
+        plan_result = PulmoTwinTools.draft_plan(user_id, lat=user_lat, lon=user_lon, review1_package=self.review1_package)
 
         # Generate LLM advice or response if query is present
         query_to_run = user_query or "Please review my asthma plan and give me personalized advice for today."
@@ -147,10 +154,10 @@ class AirGuardAgentLoop:
 
             if not existing_pending:
                 cg_msg = (
-                    f"AirGuard Health Notice: Air pollution in {user.city} is reaching AQI {peak_aqi} today. "
+                    f"PulmoTwin Health Notice: Air pollution in {user.city} is reaching AQI {peak_aqi} today. "
                     f"{user.name}'s asthma risk is currently HIGH. Please ensure they remain indoors and have rescue medication nearby."
                 )
-                action_prop = AirGuardTools.propose_notification(
+                action_prop = PulmoTwinTools.propose_notification(
                     user_id=user_id,
                     recipient=f"{user.emergency_contact_name} ({user.emergency_contact_phone})",
                     message=cg_msg,

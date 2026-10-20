@@ -1,3 +1,10 @@
+# ==============================================================================
+# PulmoTwin: Multimodal Cardiopulmonary Digital Twin
+# Happiest Health - Reimagining & Reforming Healthcare in India Summit 2026
+# Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+# Updated: October 2026 • Certified Clean Submission
+# ==============================================================================
+
 import json
 import os
 import io
@@ -11,7 +18,7 @@ from datetime import datetime
 import app as flask_app_module
 from app import app, db, get_db_connection, generate_auth_token, verify_auth_token
 from models import User, SensorData, SymptomDiary, AgentAction, AgentLog, Alert, QuizResponse, DailyPlan
-from agent.tools import AirGuardTools
+from agent.tools import PulmoTwinTools
 
 # Local Fake n8n Webhook Server for testing webhook dispatches
 class FakeWebhookHandler(http.server.BaseHTTPRequestHandler):
@@ -268,7 +275,7 @@ def test_approval_queue_lifecycle_and_idempotency(client, test_users):
 
     with app.app_context():
         # Propose an action for User A
-        prop = AirGuardTools.propose_notification(
+        prop = PulmoTwinTools.propose_notification(
             user_id=user_a_id,
             recipient="Caregiver Bob",
             message="AQI Spike Warning: Stay indoors",
@@ -282,7 +289,7 @@ def test_approval_queue_lifecycle_and_idempotency(client, test_users):
         assert action.status == "PENDING"
 
         # 2. Direct tool call refused when PENDING
-        refuse_res = AirGuardTools.send_notification(action_id)
+        refuse_res = PulmoTwinTools.send_notification(action_id)
         assert refuse_res["success"] is False
         assert "Security Guard" in refuse_res["error"] or "Only 'APPROVED'" in refuse_res["error"]
 
@@ -312,7 +319,7 @@ def test_approval_queue_reject_never_executes(client, test_users):
     headers_a = {"Authorization": f"Bearer {test_users['user_a']['token']}"}
 
     with app.app_context():
-        prop = AirGuardTools.propose_notification(
+        prop = PulmoTwinTools.propose_notification(
             user_id=user_a_id,
             recipient="Caregiver Bob",
             message="Test alert to decline",
@@ -505,7 +512,7 @@ def test_n8n_dispatch_with_unset_webhook(test_users):
     try:
         user_id = test_users["user_a"]["id"]
         with app.app_context():
-            prop = AirGuardTools.propose_notification(
+            prop = PulmoTwinTools.propose_notification(
                 user_id=user_id,
                 recipient="Caregiver Bob",
                 message="Unset test alert",
@@ -519,7 +526,7 @@ def test_n8n_dispatch_with_unset_webhook(test_users):
             action.status = "APPROVED"
             db.session.commit()
 
-            res = AirGuardTools.send_notification(action_id)
+            res = PulmoTwinTools.send_notification(action_id)
             assert res["success"] is True
             assert res["delivery"] == "simulated"
             assert "Simulated" in res["message"]
@@ -535,7 +542,7 @@ def test_n8n_dispatch_with_bad_url_handles_timeout(test_users):
     try:
         user_id = test_users["user_a"]["id"]
         with app.app_context():
-            prop = AirGuardTools.propose_notification(
+            prop = PulmoTwinTools.propose_notification(
                 user_id=user_id,
                 recipient="Caregiver Bob",
                 message="Bad URL test",
@@ -548,7 +555,7 @@ def test_n8n_dispatch_with_bad_url_handles_timeout(test_users):
             action.status = "APPROVED"
             db.session.commit()
 
-            res = AirGuardTools.send_notification(action_id)
+            res = PulmoTwinTools.send_notification(action_id)
             # Must return clean error structure without raising unhandled exception
             assert res["success"] is False
             assert "Delivery failed" in res["error"] or "timed out" in res["error"].lower() or "error" in res
@@ -568,7 +575,7 @@ def test_n8n_dispatch_to_local_fake_webhook(test_users, fake_webhook_server):
         user_id = test_users["user_a"]["id"]
         msg = "High AQI (285) detected. Please check in with patient."
         with app.app_context():
-            prop = AirGuardTools.propose_notification(
+            prop = PulmoTwinTools.propose_notification(
                 user_id=user_id,
                 recipient="Caregiver Bob",
                 message=msg,
@@ -581,7 +588,7 @@ def test_n8n_dispatch_to_local_fake_webhook(test_users, fake_webhook_server):
             action.status = "APPROVED"
             db.session.commit()
 
-            res = AirGuardTools.send_notification(action_id)
+            res = PulmoTwinTools.send_notification(action_id)
             assert res["success"] is True
             assert res["delivery"] == "dispatched"
 

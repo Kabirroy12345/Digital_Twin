@@ -1,7 +1,15 @@
+<!--
+================================================================================
+PulmoTwin: Multimodal Cardiopulmonary Digital Twin (Happiest Health Summit 2026)
+Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+Updated: October 2026 • Certified Clean Submission
+================================================================================
+-->
+
 # ⚠️ Clinical & Technical Limitations
 
-**Project:** AirGuard Agent (built on HridyaVayu base)  
-**Hackathon:** WCC Launchpad 30 • Track: Agentic AI (Healthcare)  
+**Project:** PulmoTwin Digital Twin (built on PulmoTwin base)  
+**Hackathon:** Digital Twin Challenge 2026 (Happiest Health) • Track: Agentic AI (Healthcare)  
 **Notice:** Transparent disclosure of system boundaries, dataset provenance, and clinical scope.
 
 ---
@@ -9,7 +17,7 @@
 ## 1. Regulatory Status & Non-Diagnostic Scope
 
 > ### 🚨 Critical Clinical Disclaimer
-> **AirGuard / HridyaVayu is an assistive health-tech decision-support prototype and is NOT a certified medical device.**  
+> **PulmoTwin / PulmoTwin is an assistive health-tech decision-support prototype and is NOT a certified medical device.**  
 > It is not approved by the US FDA, European EMA, Indian CDSCO, or any statutory health regulatory body. It does not provide medical diagnosis, clinical prognosis, or direct therapeutic prescriptions. It must never be used as a substitute for professional clinical judgment, emergency medical services (such as 112/108 in India or 911 in the US), or an individualized Asthma Action Plan established by a licensed pulmonologist.
 
 * Under no circumstances should patients alter, initiate, or discontinue prescribed corticosteroid or bronchodilator therapies based on agent outputs.

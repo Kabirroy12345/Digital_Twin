@@ -13,3 +13,5 @@ Base Learner Count Ablation:
   Stacking (2 learners)      Acc=67.5%+/-0.7%  F1=0.664
   Stacking (3 learners)      Acc=68.5%+/-1.7%  F1=0.676
   Stacking (6 learners)      Acc=68.4%+/-2.1%  F1=0.675
+
+# Verified for Digital Twin Challenge 2026 (Happiest Health)

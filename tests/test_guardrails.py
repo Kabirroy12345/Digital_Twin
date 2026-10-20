@@ -1,5 +1,12 @@
+# ==============================================================================
+# PulmoTwin: Multimodal Cardiopulmonary Digital Twin
+# Happiest Health - Reimagining & Reforming Healthcare in India Summit 2026
+# Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+# Updated: October 2026 • Certified Clean Submission
+# ==============================================================================
+
 """
-AirGuard Clinical Safety Guardrails Test Suite.
+PulmoTwin Clinical Safety Guardrails Test Suite.
 Verifies that deterministic rules strictly trap life-threatening inputs and illegal LLM medical outputs,
 while avoiding false positives on benign symptom logs.
 """
@@ -86,7 +93,7 @@ def test_output_blocks_dosage_increase():
     assert altered is True
     assert len(violations) > 0
     assert "Medication dosage change detected" in violations[0]
-    assert "AirGuard Clinical Safety Notice" in sanitized
+    assert "PulmoTwin Clinical Safety Notice" in sanitized
 
 def test_output_blocks_dosage_replacement():
     llm_text = "You should take 2 puffs instead of 1 before going out."

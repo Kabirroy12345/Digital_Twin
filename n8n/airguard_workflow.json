@@ -1,5 +1,5 @@
 {
-  "name": "AirGuard Agent - Human-Approved Alert Dispatcher",
+  "name": "PulmoTwin Digital Twin - Human-Approved Alert Dispatcher",
   "nodes": [
     {
       "parameters": {
@@ -9,7 +9,7 @@
         "options": {}
       },
       "id": "1a2b3c4d-0001-4000-8000-000000000001",
-      "name": "AirGuard Webhook Trigger",
+      "name": "PulmoTwin Webhook Trigger",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
@@ -48,7 +48,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Format SMS and WhatsApp payloads with clinical context & safety rails\nconst input = $input.first().json.body;\n\nconst formattedMessage = `🛡️ [AirGuard Proactive Advisory]\\n` +\n  `Patient ID: ${input.user_id}\\n` +\n  `Recipient: ${input.recipient}\\n` +\n  `Channel: ${input.channel.toUpperCase()}\\n\\n` +\n  `📋 Advisory:\\n${input.message}\\n\\n` +\n  `💡 Clinical Rationale:\\n${input.reasoning}\\n\\n` +\n  `⚠️ Non-diagnostic notification. In case of acute distress, call 112/108 or use your prescribed rescue inhaler.`;\n\nreturn [{\n  json: {\n    action_id: input.action_id,\n    user_id: input.user_id,\n    recipient: input.recipient,\n    channel: input.channel,\n    formatted_text: formattedMessage,\n    simulated_gateway: input.channel === 'sms' ? 'Twilio_SMS_Gateway' : 'WhatsApp_Cloud_API',\n    dispatched_timestamp: new Date().toISOString()\n  }\n}];"
+        "jsCode": "// Format SMS and WhatsApp payloads with clinical context & safety rails\nconst input = $input.first().json.body;\n\nconst formattedMessage = `🛡️ [PulmoTwin Proactive Advisory]\\n` +\n  `Patient ID: ${input.user_id}\\n` +\n  `Recipient: ${input.recipient}\\n` +\n  `Channel: ${input.channel.toUpperCase()}\\n\\n` +\n  `📋 Advisory:\\n${input.message}\\n\\n` +\n  `💡 Clinical Rationale:\\n${input.reasoning}\\n\\n` +\n  `⚠️ Non-diagnostic notification. In case of acute distress, call 112/108 or use your prescribed rescue inhaler.`;\n\nreturn [{\n  json: {\n    action_id: input.action_id,\n    user_id: input.user_id,\n    recipient: input.recipient,\n    channel: input.channel,\n    formatted_text: formattedMessage,\n    simulated_gateway: input.channel === 'sms' ? 'Twilio_SMS_Gateway' : 'WhatsApp_Cloud_API',\n    dispatched_timestamp: new Date().toISOString()\n  }\n}];"
       },
       "id": "1a2b3c4d-0003-4000-8000-000000000003",
       "name": "Format Caregiver Alert Payload",
@@ -62,11 +62,11 @@
     {
       "parameters": {
         "respondWith": "json",
-        "responseBody": "={\n  \"success\": true,\n  \"status\": \"DISPATCHED\",\n  \"workflow\": \"AirGuard-n8n-Caregiver-Relay\",\n  \"action_id\": {{ $json.action_id }},\n  \"gateway\": \"{{ $json.simulated_gateway }}\",\n  \"dispatched_at\": \"{{ $json.dispatched_timestamp }}\",\n  \"recipient\": \"{{ $json.recipient }}\",\n  \"preview\": \"{{ $json.formatted_text.slice(0, 100).replace(/\\n/g, ' ') }}...\"\n}",
+        "responseBody": "={\n  \"success\": true,\n  \"status\": \"DISPATCHED\",\n  \"workflow\": \"PulmoTwin-n8n-Caregiver-Relay\",\n  \"action_id\": {{ $json.action_id }},\n  \"gateway\": \"{{ $json.simulated_gateway }}\",\n  \"dispatched_at\": \"{{ $json.dispatched_timestamp }}\",\n  \"recipient\": \"{{ $json.recipient }}\",\n  \"preview\": \"{{ $json.formatted_text.slice(0, 100).replace(/\\n/g, ' ') }}...\"\n}",
         "options": {}
       },
       "id": "1a2b3c4d-0004-4000-8000-000000000004",
-      "name": "Respond Approved to AirGuard",
+      "name": "Respond Approved to PulmoTwin",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
       "position": [
@@ -93,7 +93,7 @@
     }
   ],
   "connections": {
-    "AirGuard Webhook Trigger": {
+    "PulmoTwin Webhook Trigger": {
       "main": [
         [
           {
@@ -126,7 +126,7 @@
       "main": [
         [
           {
-            "node": "Respond Approved to AirGuard",
+            "node": "Respond Approved to PulmoTwin",
             "type": "main",
             "index": 0
           }

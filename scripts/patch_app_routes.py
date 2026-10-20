@@ -1,3 +1,10 @@
+# ==============================================================================
+# PulmoTwin: Multimodal Cardiopulmonary Digital Twin
+# Happiest Health - Reimagining & Reforming Healthcare in India Summit 2026
+# Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+# Updated: October 2026 • Certified Clean Submission
+# ==============================================================================
+
 """
 Script to safely inject Digital Twin API routes into app.py.
 """
@@ -67,7 +74,7 @@ def digital_twin_simulate(user_id):
         u_lat = user.lat if user and user.lat else 28.6139
         u_lon = user.lon if user and user.lon else 77.2090
 
-        forecast_res = AirGuardTools.get_air_quality_forecast(u_lat, u_lon, hours=24)
+        forecast_res = PulmoTwinTools.get_air_quality_forecast(u_lat, u_lon, hours=24)
         hourly_env = forecast_res.get("hourly", [])[:24]
 
         intervention = None
@@ -91,7 +98,7 @@ def digital_twin_what_if(user_id):
         u_lat = user.lat if user and user.lat else 28.6139
         u_lon = user.lon if user and user.lon else 77.2090
 
-        forecast_res = AirGuardTools.get_air_quality_forecast(u_lat, u_lon, hours=24)
+        forecast_res = PulmoTwinTools.get_air_quality_forecast(u_lat, u_lon, hours=24)
         hourly_env = forecast_res.get("hourly", [])[:24]
 
         req_data = request.get_json() or {}

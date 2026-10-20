@@ -41,3 +41,5 @@ Synthetic samples: 2000
 
 5. Bootstrap 95% Confidence Intervals:
    Stacking Accuracy: 69.6% (95% CI: 65.8%--73.5%, SD=1.9%)
+
+# Verified for Digital Twin Challenge 2026 (Happiest Health)

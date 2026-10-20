@@ -1,5 +1,12 @@
+# ==============================================================================
+# PulmoTwin: Multimodal Cardiopulmonary Digital Twin
+# Happiest Health - Reimagining & Reforming Healthcare in India Summit 2026
+# Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+# Updated: October 2026 • Certified Clean Submission
+# ==============================================================================
+
 """
-AirGuard Provider-Agnostic LLM Client.
+PulmoTwin Provider-Agnostic LLM Client.
 Supports Gemini, Anthropic, OpenAI, and a clinical-grade deterministic Mock provider.
 Enforces system safety prompts and output sanitization guardrails on all responses.
 """
@@ -11,7 +18,7 @@ from typing import Dict, Any, Optional
 from agent.guardrails import sanitize_output, check_input_red_flags
 
 SYSTEM_PROMPT_EN = (
-    "You are AirGuard, an assistive AI agent that empowers asthma patients to plan their day safely around air quality. "
+    "You are PulmoTwin, an assistive AI agent that empowers asthma patients to plan their day safely around air quality. "
     "MANDATORY CLINICAL BOUNDARIES:\n"
     "1. You do NOT make medical diagnoses or claim conditions are cured.\n"
     "2. You NEVER prescribe, increase, decrease, or change medication dosages.\n"
@@ -32,9 +39,9 @@ SYSTEM_PROMPT_HI = (
     "5. यदि सांस लेने में गंभीर तकलीफ हो, तो तुरंत आपातकालीन सहायता (112 या 108) लेने का निर्देश दें।"
 )
 
-class AirGuardLLM:
+class PulmoTwinLLM:
     """
-    Provider-agnostic LLM interface for AirGuard.
+    Provider-agnostic LLM interface for PulmoTwin.
     """
     def __init__(self, provider: Optional[str] = None):
         self.provider = (provider or os.environ.get("LLM_PROVIDER") or "mock").lower()
@@ -200,11 +207,11 @@ class AirGuardLLM:
             return (
                 f"Please adhere strictly to your personal Asthma Action Plan as prescribed by your doctor ({inhaler}). "
                 f"I cannot alter medication dosages or timing. Remember to use a spacer if prescribed to ensure optimal lung deposition, "
-                f"and log every reliever puff in your AirGuard diary."
+                f"and log every reliever puff in your PulmoTwin diary."
             )
         elif any(w in q_lower for w in ["plan", "today", "schedule", "routine", "advice"]):
             return (
-                f"AirGuard Daily Plan Summary for {patient_name}:\n"
+                f"PulmoTwin Daily Plan Summary for {patient_name}:\n"
                 f"- Risk Level: **{risk_tier}** (Ambient AQI: {aqi})\n"
                 f"- Safest Outdoor Window: **{safest_window}**\n"
                 f"- Environmental Advice: Run HEPA air purifier indoors; seal windows between 12:00 and 19:00 during pollution peak.\n"

@@ -1,3 +1,10 @@
+# ==============================================================================
+# PulmoTwin: Multimodal Cardiopulmonary Digital Twin
+# Happiest Health - Reimagining & Reforming Healthcare in India Summit 2026
+# Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+# Updated: October 2026 • Certified Clean Submission
+# ==============================================================================
+
 import pytest
 import time
 from unittest.mock import patch, MagicMock
@@ -6,7 +13,7 @@ from agent.guardrails import (
     check_input_red_flags,
     sanitize_agent_output
 )
-from agent.tools import AirGuardTools
+from agent.tools import PulmoTwinTools
 from models import AgentLog, User, SymptomDiary, AgentAction, DailyPlan
 from app import app, db, agent_loop
 
@@ -124,7 +131,7 @@ HARMLESS_PHRASES = [
     "My peak flow reading was 450 L/min today",
     "Can dust trigger mild sneezing?",
     "I love drinking warm water with honey",
-    "Thank you AirGuard for the morning plan",
+    "Thank you PulmoTwin for the morning plan",
     "What triggers should I watch out for during winter?",
     "The air quality looks moderately hazy",
     "I do not have blue lips",
@@ -192,7 +199,7 @@ def test_output_sanitizer_blocks_adversarial_outputs(bad_output, reason):
     # Sanitized output must NOT contain the original unsafe directive unchanged
     assert sanitized != bad_output, f"Sanitizer failed to modify unsafe output ({reason}): '{bad_output}'"
     # Ensure clinical safety guardrails note is present
-    assert any(w in sanitized for w in ["AirGuard Clinical Safety", "Safety Rail Triggered", "एयरगार्ड क्लिनिकल सुरक्षा सूचना", "Safety Notice"])
+    assert any(w in sanitized for w in ["PulmoTwin Clinical Safety", "Safety Rail Triggered", "एयरगार्ड क्लिनिकल सुरक्षा सूचना", "Safety Notice"])
 
 def test_output_sanitizer_leaves_safe_assistive_text_unaltered():
     safe_text = "Today's air quality is Moderate (AQI 115). Your safest outdoor window is between 07:00 and 09:00 AM. Remember to keep your prescribed reliever inhaler accessible."
@@ -297,12 +304,12 @@ def test_forecast_cache_ttl_avoids_repeated_network_calls():
         mock_http.return_value = mock_resp
 
         # First call: hits network
-        res1 = AirGuardTools.get_air_quality_forecast(lat=28.61, lon=77.20, hours=24)
+        res1 = PulmoTwinTools.get_air_quality_forecast(lat=28.61, lon=77.20, hours=24)
         call_count_1 = mock_http.call_count
         assert call_count_1 >= 1
 
         # Second call immediately within TTL: must NOT increment network call count!
-        res2 = AirGuardTools.get_air_quality_forecast(lat=28.61, lon=77.20, hours=24)
+        res2 = PulmoTwinTools.get_air_quality_forecast(lat=28.61, lon=77.20, hours=24)
         call_count_2 = mock_http.call_count
         assert call_count_2 == call_count_1, "Second call within TTL should hit memory cache without network request!"
         assert res1["safest_window"] == res2["safest_window"]

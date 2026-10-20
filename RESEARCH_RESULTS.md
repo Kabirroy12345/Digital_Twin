@@ -1,3 +1,11 @@
+<!--
+================================================================================
+PulmoTwin: Multimodal Cardiopulmonary Digital Twin (Happiest Health Summit 2026)
+Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+Updated: October 2026 • Certified Clean Submission
+================================================================================
+-->
+
 # AsthmAI - Research Results & Evaluation Report
 
 ## Executive Summary

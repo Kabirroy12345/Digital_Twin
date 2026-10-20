@@ -1,5 +1,13 @@
-# AirGuard Agent — Hackathon Pitch Deck & Technical Dossier
-**Event**: WCC Launchpad 30 Hackathon  
+<!--
+================================================================================
+PulmoTwin: Multimodal Cardiopulmonary Digital Twin (Happiest Health Summit 2026)
+Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+Updated: October 2026 • Certified Clean Submission
+================================================================================
+-->
+
+# PulmoTwin Digital Twin — Hackathon Pitch Deck & Technical Dossier
+**Event**: Happiest Health Digital Twin Challenge 2026  
 **Track**: AGENTIC AI (Healthcare Domain)  
 **One-Liner**: *"An autonomous AI agent that turns asthma risk into action — planning the patient's day around air quality, asking for approval before acting, and staying strictly inside deterministic clinical safety rails."*
 
@@ -8,7 +16,7 @@
 ## 1. User Insight (15 Points)
 
 ### The Real Problem: Chronic Respiratory Vulnerability & Clinical Triage Realities
-Over **262 million people live with asthma** (WHO), yet 80% of deaths occur in low-and-middle-income countries where seasonal smog spikes and particulate volatility are acute. AirGuard addresses critical behavioral and clinical gaps identified across chronic respiratory literature:
+Over **262 million people live with asthma** (WHO), yet 80% of deaths occur in low-and-middle-income countries where seasonal smog spikes and particulate volatility are acute. PulmoTwin addresses critical behavioral and clinical gaps identified across chronic respiratory literature:
 
 1. **The Passive Trap**: Patients typically only check AQI *after* coughing, wheezing, or chest tightness begins. Passive weather widgets fail because they report conditions without changing proactive behavior.
 2. **Deceptive Clear Mornings**: Patients frequently leave rescue inhalers at home on mornings when the air looks deceptively clear, only to suffer an acute attack during evening rush-hour smog inversions.
@@ -21,7 +29,7 @@ Over **262 million people live with asthma** (WHO), yet 80% of deaths occur in l
 
 ## 2. Core Solution (24 Points)
 
-AirGuard is not a passive dashboard and not a chat wrapper. It is an **autonomous agent cycle** operating across six continuous phases:
+PulmoTwin is not a passive dashboard and not a chat wrapper. It is an **autonomous agent cycle** operating across six continuous phases:
 
 ```
     ┌──────────┐     ┌──────────┐     ┌──────────┐
@@ -63,7 +71,7 @@ We evaluated our pre-existing multimodal stacking ensemble on held-out test data
 
 ## 4. Originality (15 Points)
 
-| Feature | Standard Health Chatbots | Weather / AQI Apps | AirGuard Agent |
+| Feature | Standard Health Chatbots | Weather / AQI Apps | PulmoTwin Digital Twin |
 | :--- | :--- | :--- | :--- |
 | **Interaction Model** | Reactive chat only | Passive static widgets | **Proactive Autonomous Loop** |
 | **Action Capability** | None (chat text only) | None | **Executable Actions (SMS, n8n, Plans)** |
@@ -85,7 +93,7 @@ We evaluated our pre-existing multimodal stacking ensemble on held-out test data
 
 ## 6. Responsible Design & Ethics (10 Points)
 
-* **Prominent Non-Diagnostic Disclaimers**: Displayed prominently across the header, plans, doctor reports, and chat responses. AirGuard assists adherence; it never diagnoses.
+* **Prominent Non-Diagnostic Disclaimers**: Displayed prominently across the header, plans, doctor reports, and chat responses. PulmoTwin assists adherence; it never diagnoses.
 * **GINA Red Zone Emergency Bypass**: Automatically brings up the emergency SOS modal with direct calling buttons for **112 / 108 Ambulance** and emergency contacts.
 * **Privacy by Design (India DPDP & GDPR Principles)**:
   - Supports full patient data portability (`/api/user/export-data/<id>`) allowing patients to download their complete clinical and telemetry history in JSON format.
@@ -98,7 +106,7 @@ We evaluated our pre-existing multimodal stacking ensemble on held-out test data
 
 * **Synthetic Data Foundation**: Model trained and evaluated on parameterized synthetic distributions; real-world clinical edge cases, multi-morbidities, and pediatric variations are not fully represented.
 * **Not Clinically Validated**: No human randomized clinical trials (RCTs) have been completed; algorithm outputs are experimental heuristics.
-* **Not a Cleared Medical Device**: Not approved by US FDA, Indian CDSCO, or CE. AirGuard provides non-diagnostic decision support and lifestyle planning only; never replaces doctor consultations or emergency response (112 / 108).
+* **Not a Cleared Medical Device**: Not approved by US FDA, Indian CDSCO, or CE. PulmoTwin provides non-diagnostic decision support and lifestyle planning only; never replaces doctor consultations or emergency response (112 / 108).
 * **Environmental Resolution Limits**: Ambient Open-Meteo feeds represent macro air basins; indoor particulate spikes (cooking, biomass, incense) are not sensed without manual logging.
 * **Calibrated Alarm Trade-off**: The hybrid system trades accuracy (73.0% -> 63.67%) for higher high-risk sensitivity (~83%) by design, deliberately accepting more false alarms to miss fewer respiratory emergencies.
 

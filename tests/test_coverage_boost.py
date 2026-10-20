@@ -1,8 +1,15 @@
+# ==============================================================================
+# PulmoTwin: Multimodal Cardiopulmonary Digital Twin
+# Happiest Health - Reimagining & Reforming Healthcare in India Summit 2026
+# Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+# Updated: October 2026 • Certified Clean Submission
+# ==============================================================================
+
 import json
 from unittest.mock import patch, MagicMock
 import pytest
 from app import app, db, User, RealTimeAQI
-from agent.llm import AirGuardLLM
+from agent.llm import PulmoTwinLLM
 
 @pytest.fixture
 def auth_header(client):
@@ -15,27 +22,27 @@ def test_llm_auto_provider_selection(monkeypatch):
     monkeypatch.setenv("GEMINI_API_KEY", "dummy_gemini")
     monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
-    llm = AirGuardLLM()
+    llm = PulmoTwinLLM()
     assert llm.provider == "gemini"
     assert llm.get_provider_name() == "GEMINI"
 
     monkeypatch.delenv("GEMINI_API_KEY", raising=False)
     monkeypatch.delenv("GOOGLE_API_KEY", raising=False)
     monkeypatch.setenv("ANTHROPIC_API_KEY", "dummy_claude")
-    llm = AirGuardLLM()
+    llm = PulmoTwinLLM()
     assert llm.provider == "anthropic"
 
     monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
     monkeypatch.setenv("OPENAI_API_KEY", "dummy_openai")
-    llm = AirGuardLLM()
+    llm = PulmoTwinLLM()
     assert llm.provider == "openai"
 
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
-    llm = AirGuardLLM()
+    llm = PulmoTwinLLM()
     assert llm.provider == "mock"
 
 def test_llm_call_gemini_success_and_failure(monkeypatch):
-    llm = AirGuardLLM(provider="gemini")
+    llm = PulmoTwinLLM(provider="gemini")
     llm.gemini_key = "test_key"
 
     # Success case
@@ -53,7 +60,7 @@ def test_llm_call_gemini_success_and_failure(monkeypatch):
             llm._call_gemini("Is it safe?", {}, "system prompt")
 
 def test_llm_call_anthropic_success_and_failure(monkeypatch):
-    llm = AirGuardLLM(provider="anthropic")
+    llm = PulmoTwinLLM(provider="anthropic")
     llm.anthropic_key = "test_key"
 
     with patch("requests.post") as mock_post:
@@ -69,7 +76,7 @@ def test_llm_call_anthropic_success_and_failure(monkeypatch):
             llm._call_anthropic("Query", {}, "system prompt")
 
 def test_llm_call_openai_success_and_failure(monkeypatch):
-    llm = AirGuardLLM(provider="openai")
+    llm = PulmoTwinLLM(provider="openai")
     llm.openai_key = "test_key"
 
     with patch("requests.post") as mock_post:
@@ -85,7 +92,7 @@ def test_llm_call_openai_success_and_failure(monkeypatch):
             llm._call_openai("Query", {}, "system prompt")
 
 def test_llm_fallback_on_api_exception(monkeypatch):
-    llm = AirGuardLLM(provider="gemini")
+    llm = PulmoTwinLLM(provider="gemini")
     llm.gemini_key = "test_key"
 
     with patch.object(llm, "_call_gemini", side_effect=Exception("Connection timed out")):
@@ -94,7 +101,7 @@ def test_llm_fallback_on_api_exception(monkeypatch):
         assert len(res["response"]) > 0
 
 def test_llm_hindi_mock_responses():
-    llm = AirGuardLLM(provider="mock")
+    llm = PulmoTwinLLM(provider="mock")
     res_outdoor = llm.generate_response("क्या मैं बाहर दौड़ सकता हूँ?", {"aqi": 120, "safest_window": "07:00 - 09:00"}, language="hi")
     assert "वायु गुणवत्ता सूचकांक" in res_outdoor["response"]
     assert "07:00 - 09:00" in res_outdoor["response"]

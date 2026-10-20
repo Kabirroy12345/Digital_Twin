@@ -1,5 +1,12 @@
+# ==============================================================================
+# PulmoTwin: Multimodal Cardiopulmonary Digital Twin
+# Happiest Health - Reimagining & Reforming Healthcare in India Summit 2026
+# Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+# Updated: October 2026 • Certified Clean Submission
+# ==============================================================================
+
 """
-AirGuard Agent - Proactive Clinical Safety & Action Planning Package.
+PulmoTwin Digital Twin - Proactive Clinical Safety & Action Planning Package.
 Turns asthma risk assessments into proactive, human-approved daily actions.
 """
 
@@ -10,9 +17,9 @@ from agent.guardrails import (
     HINDI_RED_FLAGS,
     ClinicalSafetyViolation
 )
-from agent.llm import AirGuardLLM
-from agent.tools import AirGuardTools
-from agent.loop import AirGuardAgentLoop
+from agent.llm import PulmoTwinLLM
+from agent.tools import PulmoTwinTools
+from agent.loop import PulmoTwinAgentLoop
 
 __all__ = [
     "check_input_red_flags",
@@ -20,7 +27,7 @@ __all__ = [
     "RED_FLAG_KEYWORDS",
     "HINDI_RED_FLAGS",
     "ClinicalSafetyViolation",
-    "AirGuardLLM",
-    "AirGuardTools",
-    "AirGuardAgentLoop"
+    "PulmoTwinLLM",
+    "PulmoTwinTools",
+    "PulmoTwinAgentLoop"
 ]

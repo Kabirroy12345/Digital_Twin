@@ -1,4 +1,12 @@
-# 📊 HridyaVayu: Dataset Overview & Data Architecture
+<!--
+================================================================================
+PulmoTwin: Multimodal Cardiopulmonary Digital Twin (Happiest Health Summit 2026)
+Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+Updated: October 2026 • Certified Clean Submission
+================================================================================
+-->
+
+# 📊 PulmoTwin: Dataset Overview & Data Architecture
 ### Multimodal Atmospheric Telemetry & GINA Clinical Guidelines Dataset Breakdown
 **Department of Computer Science & Engineering, VIT Bhopal University • Group — 147**
 

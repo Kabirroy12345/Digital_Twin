@@ -1,7 +1,15 @@
-# AirGuard Agent — User Research & Persona Framework
+<!--
+================================================================================
+PulmoTwin: Multimodal Cardiopulmonary Digital Twin (Happiest Health Summit 2026)
+Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+Updated: October 2026 • Certified Clean Submission
+================================================================================
+-->
+
+# PulmoTwin Digital Twin — User Research & Persona Framework
 
 ## Executive Summary
-Asthma affects over **262 million people globally** (WHO 2023) and causes over **455,000 deaths annually**, with severe mortality in high-particulate urban centers. AirGuard is designed as a preventive asthma management agent that shifts patients from reactive symptom response to proactive schedule planning.
+Asthma affects over **262 million people globally** (WHO 2023) and causes over **455,000 deaths annually**, with severe mortality in high-particulate urban centers. PulmoTwin is designed as a preventive asthma management agent that shifts patients from reactive symptom response to proactive schedule planning.
 
 To maintain strict research integrity, this document separates empirical field evidence collection from hypothetical design frameworks.
 

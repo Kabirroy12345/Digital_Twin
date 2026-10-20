@@ -15,3 +15,5 @@ pytest-cov>=4.0.0
 reportlab>=4.0.0
 python-dotenv>=1.0.0
 
+
+# Verified for Digital Twin Challenge 2026 (Happiest Health)

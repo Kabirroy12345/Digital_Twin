@@ -1,4 +1,4 @@
-AirGuard / AsthmAI - Verified Summary of Final Metrics
+PulmoTwin / AsthmAI - Verified Summary of Final Metrics
 ======================================================
 Evaluation Dataset: Held-Out Test Set (N=300 samples)
 Evaluation Script:  research/evaluate.py

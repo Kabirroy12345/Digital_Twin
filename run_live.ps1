@@ -1,6 +1,6 @@
-# HridyaVayu Live Launcher
+# PulmoTwin Live Launcher
 Write-Host '==========================================================' -ForegroundColor Cyan
-Write-Host '   Starting HridyaVayu: Live Connected Cloud Platform     ' -ForegroundColor Yellow
+Write-Host '   Starting PulmoTwin: Live Connected Cloud Platform     ' -ForegroundColor Yellow
 Write-Host '==========================================================' -ForegroundColor Cyan
 
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path

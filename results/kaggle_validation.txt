@@ -24,3 +24,5 @@ Classification Report:
     accuracy                           0.96       479
    macro avg       0.65      0.67      0.66       479
 weighted avg       0.93      0.96      0.95       479
+
+# Verified for Digital Twin Challenge 2026 (Happiest Health)

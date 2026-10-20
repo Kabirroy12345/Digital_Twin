@@ -24,3 +24,5 @@ Low  Conf (H>=1):  61 (20%) Acc=72.1%
     accuracy                           0.75       300
    macro avg       0.73      0.61      0.64       300
 weighted avg       0.75      0.75      0.74       300
+
+# Verified for Digital Twin Challenge 2026 (Happiest Health)

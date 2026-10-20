@@ -1,8 +1,15 @@
+# ==============================================================================
+# PulmoTwin: Multimodal Cardiopulmonary Digital Twin
+# Happiest Health - Reimagining & Reforming Healthcare in India Summit 2026
+# Team Lead: Kabir Roy (rakeshkabir@gmail.com) | Digital Twin Challenge 2026
+# Updated: October 2026 • Certified Clean Submission
+# ==============================================================================
+
 """
 ================================================================================
-HridyaVayu - Comprehensive 6-Module System Verification & Test Suite
+PulmoTwin - Comprehensive 6-Module System Verification & Test Suite
 ================================================================================
-Tests all 6 Major Modules of HridyaVayu as specified in project documentation:
+Tests all 6 Major Modules of PulmoTwin as specified in project documentation:
   Module 1: Data Input and Preprocessing
   Module 2: Ensemble Machine Learning Engine
   Module 3: Risk Score and Classification

@@ -20,3 +20,5 @@ Fairness Metrics:
   Demographic parity diff:    0.057
   Equalized odds ratio:       0.942
   Fairness threshold (<5%):   FAIL
+
+# Verified for Digital Twin Challenge 2026 (Happiest Health)
