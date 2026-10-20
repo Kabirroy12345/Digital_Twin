@@ -25,6 +25,7 @@ cloudflared*
 *.docx
 *.pptx
 *.pdf
+!docs/*.pdf
 figures/*.pdf
 
 # OS generated files
