@@ -6,7 +6,7 @@ Updated: October 2026 • Certified Clean Submission
 ================================================================================
 -->
 
-# 🎥 PulmoTwin: 15–20 Minute Official Demo Walkthrough & Video Script
+# 🎥 PulmoTwin: Minimum 20-Minute Official Demo Walkthrough & Video Script
 ### Happiest Health — Digital Twin Challenge 2026
 **Summit**: Reimagining & Reforming Healthcare in India Summit 2026, Bengaluru  
 **Project**: PulmoTwin — Multimodal Cardiopulmonary Digital Twin for Proactive Adverse Event Forecasting & Personalized Clinical Intervention  
@@ -14,18 +14,18 @@ Updated: October 2026 • Certified Clean Submission
 
 ---
 
-## 📺 Video Overview & Timestamps (Total Duration: 18:30)
+## 📺 Video Overview & Timestamps (Total Duration: 21:00)
 
 | Timestamp | Phase | Topic Covered | On-Screen Action |
 |:---|:---|:---|:---|
-| **00:00 – 02:15** | **Part 1: The Healthcare Crisis** | India's chronic respiratory crisis & reactive care gap | Opening title slide, urban smog statistics, Delhi/Mumbai AQI spikes |
-| **02:15 – 04:30** | **Part 2: What is a Healthcare Digital Twin?** | Virtual patient replica concept, wearable + EHR pairing | Architecture diagram, FHIR R4 / ABDM schema overview |
-| **04:30 – 07:15** | **Part 3: Live System Walkthrough** | Full web UI overview, live atmospheric telemetry ingestion | Dashboard navigation, Open-Meteo live sync, patient vitals gauges |
-| **07:15 – 10:00** | **Part 4: Real-Time Wearable Telemetry** | Continuous PPG (HR, HRV, SpO2, Resp Rate, PEF) | Live wearable telemetry stream, autonomic stress index, zone badges |
-| **10:00 – 12:45** | **Part 5: 24-Hour Forward Simulation** | Predicting acute adverse events before occurrence | Interactive trajectory graph, airway resistance, decompensation timing |
-| **12:45 – 15:15** | **Part 6: Counterfactual "What-If" Engine** | Testing clinical interventions virtually | "What-If" sandbox: HEPA filter vs prophylactic inhaler comparison |
-| **15:15 – 16:45** | **Part 7: Safety Rails & HITL Governance** | GINA clinical rules, red-flag emergency bypass, approval queue | Live test of emergency input in Hindi ("सांस नहीं आ रही") & 108/112 SOS |
-| **16:45 – 18:30** | **Part 8: Real-World Impact & Roadmap** | ABDM integration, clinician report PDF, summary | 30-day doctor summary PDF download, final pitch, thank you |
+| **00:00 – 02:30** | **Part 1: The Healthcare Crisis in India** | India's 37.9M asthma burden & reactive healthcare failure | Opening title slide, urban smog statistics, Delhi/Bengaluru AQI spikes |
+| **02:30 – 05:00** | **Part 2: Two Data Streams Fusion** | Virtual patient replica concept: Longitudinal EHR + Wearables/IoT | Architecture diagram, FHIR R4 / ABDM schema & wearable ingestion pipeline |
+| **05:00 – 08:00** | **Part 3: Live System Walkthrough** | Warm Ivory web UI overview, Open-Meteo GPS sync, bilingual intake | Overview navigation, live GPS sync, patient vitals & 2-way GINA synthesis |
+| **08:00 – 11:00** | **Part 4: Real-Time Wearable Telemetry** | Continuous PPG (HR, HRV, SpO2, Resp Rate, PEF) & BLE Smart Inhaler | Live wearable telemetry stream, autonomic stress index, zone badges |
+| **11:00 – 13:30** | **Part 5: 24-Hour Forward Simulation** | Predicting acute adverse events before onset | Interactive trajectory graph, airway resistance ($R_{aw}$), decompensation timing |
+| **13:30 – 16:00** | **Part 6: Counterfactual "What-If" Engine** | In silico clinical testing of interventions | "What-If" sandbox: HEPA air purifier vs prophylactic MART inhaler comparison |
+| **16:00 – 18:00** | **Part 7: Safety Rails & HITL Governance** | GINA clinical rules, DPDP Act 2023 compliance, 108/112 SOS | Live test of acute emergency phrase in Hindi ("सांस नहीं आ रही") & SOS protocol |
+| **18:00 – 21:00** | **Part 8: Dynamic Physician Console & CDS** | Real-time cohort triage, sign-off queue, Bengaluru sensor grid | Dr. Sarah Mitchell console, GINA 2026 matrix, clinical PDF download, wrap-up |
 
 ---
 
