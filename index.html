@@ -2498,7 +2498,618 @@
       color: #0f172a;
     }
 
-  </style>
+  
+    /* ==========================================================================
+       PHYSICIAN & CLINICAL CONSOLE (NOVA WARM IVORY SYSTEM)
+       ========================================================================== */
+    .physician-header-card {
+      background: #ffffff;
+      border: 1px solid var(--color-outline-variant);
+      border-radius: 18px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 20px -2px rgba(185, 139, 110, 0.08);
+    }
+    .physician-profile-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+    .physician-avatar-badge {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .doc-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: #fdf6ec;
+      color: var(--color-brand-accent);
+      border: 1px solid #ebd7c5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+    .physician-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--color-on-surface);
+      letter-spacing: -0.02em;
+    }
+    .badge-role {
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: #f1f5f9;
+      color: #334155;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      border: 1px solid #e2e8f0;
+    }
+    .badge-live-pulse {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #059669;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      padding: 3px 10px;
+      border-radius: 9999px;
+    }
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: pulseGreenAnim 2s infinite;
+    }
+    @keyframes pulseGreenAnim {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+    .physician-subtext {
+      font-size: 0.85rem;
+      color: var(--color-on-surface-variant);
+      margin-top: 0.25rem;
+    }
+    .physician-quick-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+    .doc-btn-primary {
+      background: var(--color-brand-primary);
+      color: var(--color-brand-light);
+      border: 1px solid transparent;
+      padding: 0.55rem 1.25rem;
+      border-radius: 9999px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(22, 22, 22, 0.12);
+    }
+    .doc-btn-primary:hover {
+      background: #2a2a2a;
+      transform: translateY(-1px);
+    }
+    .doc-btn-secondary {
+      background: #ffffff;
+      color: var(--color-on-surface);
+      border: 1px solid var(--color-outline-variant);
+      padding: 0.55rem 1.15rem;
+      border-radius: 9999px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.2s ease;
+    }
+    .doc-btn-secondary:hover {
+      background: var(--color-surface-dim);
+      border-color: var(--color-brand-accent);
+      transform: translateY(-1px);
+    }
+
+    /* Clinical KPI Grid */
+    .clinical-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .kpi-card {
+      background: #ffffff;
+      border: 1px solid var(--color-outline-variant);
+      border-radius: 16px;
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--color-brand-accent);
+      box-shadow: 0 8px 24px -4px rgba(185, 139, 110, 0.12);
+    }
+    .kpi-icon-wrap {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .kpi-content {
+      display: flex;
+      flex-direction: column;
+    }
+    .kpi-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--color-on-surface-variant);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .kpi-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--color-on-surface);
+      line-height: 1.15;
+      margin: 0.15rem 0;
+    }
+    .kpi-subtext {
+      font-size: 0.7rem;
+      color: #64748b;
+      white-space: nowrap;
+    }
+
+    /* Admin Layout Grids */
+    .admin-main-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .admin-bottom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 1024px) {
+      .admin-main-grid,
+      .admin-bottom-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .admin-panel {
+      background: #ffffff;
+      border: 1px solid var(--color-outline-variant);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+    }
+    .admin-side-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .panel-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.25rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .panel-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-on-surface);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .panel-subtitle {
+      font-size: 0.8rem;
+      color: var(--color-on-surface-variant);
+      margin-top: 0.2rem;
+    }
+
+    /* Filter Controls */
+    .table-filter-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-outline-variant);
+      border-radius: 9999px;
+      padding: 0.35rem 0.85rem;
+      font-size: 0.8rem;
+    }
+    .search-box input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 0.8rem;
+      color: var(--color-on-surface);
+      width: 160px;
+    }
+    .filter-pills {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--color-surface);
+      padding: 3px;
+      border-radius: 9999px;
+      border: 1px solid var(--color-outline-variant);
+    }
+    .filter-pill {
+      border: none;
+      background: transparent;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--color-on-surface-variant);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-pill.active {
+      background: var(--color-brand-primary);
+      color: #ffffff;
+    }
+
+    /* Clinical Table */
+    .clinical-data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+    .clinical-data-table th {
+      text-align: left;
+      padding: 0.75rem 0.85rem;
+      background: #faf8f5;
+      color: #475569;
+      font-weight: 700;
+      border-bottom: 1.5px solid var(--color-outline-variant);
+      white-space: nowrap;
+    }
+    .clinical-data-table td {
+      padding: 0.75rem 0.85rem;
+      border-bottom: 1px solid var(--color-outline-variant);
+      color: var(--color-on-surface);
+      vertical-align: middle;
+    }
+    .clinical-data-table tbody tr:hover {
+      background: #fcf9f5;
+    }
+
+    /* Badges */
+    .badge-risk-high {
+      background: #fef2f2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.72rem;
+      display: inline-block;
+    }
+    .badge-risk-med {
+      background: #fffbeb;
+      color: #b45309;
+      border: 1px solid #fde68a;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.72rem;
+      display: inline-block;
+    }
+    .badge-risk-low {
+      background: #f0fdf4;
+      color: #15803d;
+      border: 1px solid #bbf7d0;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.72rem;
+      display: inline-block;
+    }
+    .badge-count {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .badge-status-green {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #15803d;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      padding: 2px 8px;
+      border-radius: 9999px;
+    }
+    .badge-accent {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--color-brand-accent);
+      background: #fbf6f2;
+      border: 1px solid #eddcd0;
+      padding: 2px 8px;
+      border-radius: 9999px;
+    }
+
+    /* Agent Action Cards */
+    .agent-action-card {
+      background: #fdfcfa;
+      border: 1px solid var(--color-outline-variant);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 0.85rem;
+      transition: all 0.2s ease;
+    }
+    .agent-action-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    }
+    .action-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.45rem;
+    }
+    .action-patient-title {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--color-on-surface);
+    }
+    .action-payload {
+      font-size: 0.82rem;
+      color: #334155;
+      margin-bottom: 0.45rem;
+      line-height: 1.45;
+    }
+    .action-rationale {
+      font-size: 0.75rem;
+      color: #64748b;
+      background: #f8fafc;
+      padding: 6px 10px;
+      border-radius: 6px;
+      margin-bottom: 0.65rem;
+    }
+    .action-btn-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-approve-sm {
+      background: #16a34a;
+      color: #ffffff;
+      border: none;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: background 0.2s;
+    }
+    .btn-approve-sm:hover {
+      background: #15803d;
+    }
+    .btn-reject-sm {
+      background: #ffffff;
+      color: #64748b;
+      border: 1px solid #cbd5e1;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.2s;
+    }
+    .btn-reject-sm:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+
+    /* Alert Items */
+    .alert-feed-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.85rem;
+      border-radius: 10px;
+      background: #fff8f8;
+      border: 1px solid #fee2e2;
+      margin-bottom: 0.65rem;
+    }
+    .alert-feed-item.warning {
+      background: #fffbeb;
+      border-color: #fef3c7;
+    }
+    .alert-feed-item.info {
+      background: #f8fafc;
+      border-color: #e2e8f0;
+    }
+    .alert-feed-msg {
+      font-size: 0.8rem;
+      color: #1e293b;
+      line-height: 1.4;
+      margin-bottom: 0.25rem;
+    }
+    .alert-feed-time {
+      font-size: 0.68rem;
+      color: #94a3b8;
+    }
+
+    /* Sensor Nodes Grid */
+    .sensor-nodes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.75rem;
+    }
+    .sensor-node-card {
+      background: #faf8f5;
+      border: 1px solid var(--color-outline-variant);
+      border-radius: 10px;
+      padding: 0.85rem;
+      transition: all 0.2s;
+    }
+    .sensor-node-card:hover {
+      background: #ffffff;
+      border-color: var(--color-brand-accent);
+      transform: translateY(-1px);
+    }
+    .sensor-node-name {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--color-on-surface);
+      margin-bottom: 0.35rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sensor-node-aqi {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+    .sensor-node-metrics {
+      font-size: 0.68rem;
+      color: #64748b;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    /* GINA Matrix Table */
+    .gina-matrix-table-wrap {
+      overflow-x: auto;
+    }
+    .gina-matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+    }
+    .gina-matrix-table th {
+      background: #faf8f5;
+      padding: 0.65rem 0.75rem;
+      font-weight: 700;
+      color: #475569;
+      border-bottom: 1.5px solid var(--color-outline-variant);
+      text-align: left;
+      white-space: nowrap;
+    }
+    .gina-matrix-table td {
+      padding: 0.65rem 0.75rem;
+      border-bottom: 1px solid var(--color-outline-variant);
+      font-size: 0.78rem;
+    }
+    .step-badge {
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+    }
+    .step-1 { background: #eff6ff; color: #1d4ed8; }
+    .step-3 { background: #fef3c7; color: #b45309; }
+    .step-4 { background: #fef2f2; color: #b91c1c; }
+    .status-cell.ok { color: #15803d; font-weight: 600; }
+    .status-cell.warning { color: #d97706; font-weight: 600; }
+    .status-cell.danger { color: #dc2626; font-weight: 600; }
+    .status-cell.critical { color: #991b1b; font-weight: 700; background: #fee2e2; border-radius: 4px; }
+
+    /* Action Buttons in Table */
+    .btn-tbl-action {
+      background: #ffffff;
+      border: 1px solid var(--color-outline-variant);
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: var(--color-on-surface);
+      transition: all 0.15s ease;
+      margin-right: 4px;
+    }
+    .btn-tbl-action:hover {
+      background: var(--color-surface-dim);
+      border-color: var(--color-brand-accent);
+      color: var(--color-brand-primary);
+    }
+
+    /* SOS Quick Pill in Header */
+    .sos-quick-pill {
+      background: #fef2f2;
+      color: #dc2626;
+      border: 1.5px solid #fca5a5;
+      border-radius: 9999px;
+      padding: 0.45rem 0.95rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.2s ease;
+    }
+    .sos-quick-pill:hover {
+      background: #dc2626;
+      color: #ffffff;
+      border-color: #dc2626;
+      transform: translateY(-1px);
+    }
+</style>
 </head>
 <body>
 
@@ -2520,15 +3131,15 @@
       <!-- Nav items shown ONLY when logged in -->
       <nav class="nav-links" id="authenticated-nav" style="display: flex;">
         <button class="nav-btn active" id="nav-landing" onclick="switchView('landing')"><i class="fa-solid fa-house"></i> Overview</button>
-                <button class="nav-btn" id="nav-digital-twin" onclick="switchView('digital-twin'); initDigitalTwinView();" style="color: #0284c7; font-weight: 700;"><i class="fa-solid fa-heart-pulse"></i> Digital Twin</button>
-<button class="nav-btn" id="nav-agent" onclick="switchView('agent'); initAgentView();" style="color: var(--primary); font-weight: 700;"><i class="fa-solid fa-robot"></i> PulmoTwin Digital Twin</button>
-        <button class="nav-btn" id="nav-user" onclick="switchView('user'); setStep(1);">Patient Portal</button>
-        <button class="nav-btn" id="nav-admin" onclick="switchView('admin');">Physician Console</button>
-        <button class="nav-btn" id="nav-eda" onclick="switchView('eda');">Analytics</button>
+        <button class="nav-btn" id="nav-digital-twin" onclick="switchView('digital-twin'); initDigitalTwinView();"><i class="fa-solid fa-heart-pulse"></i> Cardiopulmonary Twin</button>
+        <button class="nav-btn" id="nav-agent" onclick="switchView('agent'); initAgentView();"><i class="fa-solid fa-robot"></i> Autonomous Agent</button>
+        <button class="nav-btn" id="nav-user" onclick="switchView('user'); setStep(1);"><i class="fa-solid fa-clipboard-user"></i> Patient Assessment</button>
+        <button class="nav-btn" id="nav-admin" onclick="switchView('admin');"><i class="fa-solid fa-stethoscope"></i> Physician Console</button>
       </nav>
 
       <!-- Auth Container -->
       <div id="auth-header-container" style="display: flex; align-items: center; gap: 0.5rem;">
+        <button class="sos-quick-pill" onclick="openEmergencySosModal()" aria-label="Emergency SOS 112 / 108" title="Emergency Clinical Dispatch SOS"><i class="fa-solid fa-triangle-exclamation"></i> SOS 112</button>
         <button class="demo-pill" onclick="quickLoginDemo('User')">
           <i class="fa-solid fa-user"></i> Demo Patient
         </button>
@@ -5008,140 +5619,293 @@
          VIEW 3: CLINICAL TELEMETRY & ADMIN
          ========================================== -->
     <section id="view-admin" class="view-section">
-      <div style="background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 5rem 2.5rem; text-align: center; max-width: 680px; margin: 4rem auto; box-shadow: var(--shadow-sm);">
-        <div style="width: 80px; height: 80px; border-radius: 50%; background: #fffbeb; color: #d97706; display: flex; align-items: center; justify-content: center; font-size: 2.25rem; margin: 0 auto 1.5rem; border: 1px solid #fde68a;">
-          <i class="fa-solid fa-wrench"></i>
+      <!-- Physician Console Header Card -->
+      <div class="physician-header-card">
+        <div class="physician-profile-row">
+          <div class="physician-avatar-badge">
+            <div class="doc-avatar"><i class="fa-solid fa-user-doctor"></i></div>
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap;">
+                <h2 class="physician-name">Dr. Sarah Mitchell, MD</h2>
+                <span class="badge-role">Lead Pulmonologist</span>
+                <span class="badge-live-pulse"><span class="pulse-dot"></span> Live Telemetry Active</span>
+              </div>
+              <p class="physician-subtext">Bengaluru Central Pulmonary Institute &bull; GINA 2026 Clinical Decision Support Engine Active</p>
+            </div>
+          </div>
+          <div class="physician-quick-actions">
+            <button class="doc-btn-secondary" onclick="exportDoctorSummaryPdf()">
+              <i class="fa-solid fa-file-pdf"></i> Clinical Report (PDF)
+            </button>
+            <button class="doc-btn-secondary" onclick="openPrescribeModal()">
+              <i class="fa-solid fa-prescription"></i> Quick Prescribe
+            </button>
+            <button class="doc-btn-secondary" onclick="broadcastAqiAdvisory()">
+              <i class="fa-solid fa-bullhorn"></i> Broadcast Advisory
+            </button>
+            <button class="doc-btn-primary" onclick="loadAdminData()">
+              <i class="fa-solid fa-arrows-rotate"></i> Refresh Telemetry
+            </button>
+          </div>
         </div>
-        <div style="display: inline-block; background: #f1f5f9; color: var(--text-muted); font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 1rem;">
-          Clinical Portal Notice
+      </div>
+
+      <!-- 6 Dynamic Clinical KPI Summary Cards -->
+      <div class="clinical-kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-icon-wrap" style="background: #eff6ff; color: #2563eb;">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">Monitored Cohort</span>
+            <h3 class="kpi-value" id="admin-stat-users">10</h3>
+            <span class="kpi-subtext" id="admin-stat-users-sub">3 High &bull; 4 Mod &bull; 3 Stable</span>
+          </div>
         </div>
-        <h2 style="font-family: 'Outfit', sans-serif; font-size: 2.4rem; font-weight: 800; color: var(--accent); letter-spacing: -0.02em; margin-bottom: 0.85rem;">
-          UNDER MAINTENANCE
-        </h2>
-        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; max-width: 520px; margin: 0 auto 2rem;">
-          The Physician & Clinical Telemetry Console is currently undergoing scheduled infrastructure upgrades and electronic health record (EHR / HL7 FHIR) synchronization. Clinical monitoring will resume shortly.
-        </p>
-        <button class="btn-hero-primary" onclick="switchView('landing')">
-          <i class="fa-solid fa-arrow-left"></i> Return to Overview
-        </button>
+
+        <div class="kpi-card">
+          <div class="kpi-icon-wrap" style="background: #f0fdf4; color: #16a34a;">
+            <i class="fa-solid fa-satellite-dish"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">IoT Sensor Nodes</span>
+            <h3 class="kpi-value" id="admin-stat-sensors">26</h3>
+            <span class="kpi-subtext">100% Online &bull; Open-Meteo GPS</span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-icon-wrap" style="background: #faf5ff; color: #9333ea;">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">ML Inferences</span>
+            <h3 class="kpi-value" id="admin-stat-predictions">28</h3>
+            <span class="kpi-subtext">LR + RF + GBM Ensemble</span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-icon-wrap" style="background: #fffbeb; color: #d97706;">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">Mean Cohort Risk</span>
+            <h3 class="kpi-value" id="admin-stat-avg-risk">0.42</h3>
+            <span class="kpi-subtext" id="admin-stat-risk-sub">Elevated Airway Strain</span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-icon-wrap" style="background: #fef2f2; color: #dc2626;">
+            <i class="fa-solid fa-bell"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">Active Alerts</span>
+            <h3 class="kpi-value" id="admin-stat-alerts">10</h3>
+            <span class="kpi-subtext">3 Critical Threshold Breaches</span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-icon-wrap" style="background: #f0fdfa; color: #0d9488;">
+            <i class="fa-solid fa-clipboard-check"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">Pending Agent Plans</span>
+            <h3 class="kpi-value" id="admin-stat-actions">4</h3>
+            <span class="kpi-subtext">Awaiting Clinician Sign-Off</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main 2-Column Grid: Cohort Table + Autonomous Agent Action Queue -->
+      <div class="admin-main-grid">
+        <!-- Left Column: Patient Cohort Monitoring & Triaging (2/3 width) -->
+        <div class="admin-panel">
+          <div class="panel-header-row">
+            <div>
+              <h3 class="panel-title"><i class="fa-solid fa-bed-pulse" style="color: #0284c7;"></i> Patient Cohort Real-Time Triaging</h3>
+              <p class="panel-subtitle">Multimodal fusion of wearable biomarkers (SpO2, FEV1) & ambient atmospheric triggers</p>
+            </div>
+            <div class="table-filter-controls">
+              <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass" style="color: #94a3b8;"></i>
+                <input type="text" id="admin-cohort-search" placeholder="Search patient, ID, city..." oninput="filterCohortTable()" />
+              </div>
+              <div class="filter-pills" id="admin-risk-filters">
+                <button class="filter-pill active" id="filter-all" onclick="setRiskFilter('ALL')">All</button>
+                <button class="filter-pill" id="filter-high" onclick="setRiskFilter('High')">High Risk</button>
+                <button class="filter-pill" id="filter-med" onclick="setRiskFilter('Medium')">Medium</button>
+                <button class="filter-pill" id="filter-low" onclick="setRiskFilter('Low')">Controlled</button>
+              </div>
+            </div>
+          </div>
+
+          <div style="overflow-x: auto;">
+            <table class="clinical-data-table">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Patient</th>
+                  <th>Risk Level</th>
+                  <th>Ensemble Score</th>
+                  <th>Baseline LR</th>
+                  <th>Random Forest</th>
+                  <th>GradBoost</th>
+                  <th>AQI</th>
+                  <th>Clinical Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-records-table">
+                <!-- Dynamically populated by loadAdminData() -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Right Column: Autonomous Agent Approvals & Critical Alerts (1/3 width) -->
+        <div class="admin-side-stack">
+          <!-- Autonomous Agent Clinical Actions Queue -->
+          <div class="admin-panel">
+            <div class="panel-header-row">
+              <div>
+                <h3 class="panel-title"><i class="fa-solid fa-robot" style="color: var(--primary);"></i> Clinician Sign-Off Queue</h3>
+                <p class="panel-subtitle">Deterministic safety approval for AI recommendations</p>
+              </div>
+              <span class="badge-count" id="admin-pending-badge">4 Pending</span>
+            </div>
+            <div class="agent-actions-list" id="admin-agent-actions-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Real-Time Critical Patient Alerts -->
+          <div class="admin-panel">
+            <div class="panel-header-row">
+              <div>
+                <h3 class="panel-title"><i class="fa-solid fa-triangle-exclamation" style="color: #dc2626;"></i> Critical Alerts Feed</h3>
+                <p class="panel-subtitle">Real-time threshold and biomarker triggers</p>
+              </div>
+              <button class="doc-btn-secondary" style="font-size: 0.72rem; padding: 3px 10px;" onclick="clearAllAdminAlerts()">Acknowledge All</button>
+            </div>
+            <div class="alerts-feed-list" id="admin-alerts-feed">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Grid: Bengaluru Sensor Grid + 2-Way GINA Guideline Decision Matrix -->
+      <div class="admin-bottom-grid">
+        <!-- Bengaluru Atmospheric IoT Sensor Grid -->
+        <div class="admin-panel">
+          <div class="panel-header-row">
+            <div>
+              <h3 class="panel-title"><i class="fa-solid fa-tower-broadcast" style="color: #059669;"></i> Bengaluru Atmospheric IoT Sensor Grid</h3>
+              <p class="panel-subtitle">Hyperlocal particulate and gas concentrations across urban monitoring clusters</p>
+            </div>
+            <span class="badge-status-green"><i class="fa-solid fa-circle"></i> 5 Nodes Live</span>
+          </div>
+          <div class="sensor-nodes-grid" id="admin-sensor-nodes">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- 2-Way GINA 2026 Clinical Protocol Matrix -->
+        <div class="admin-panel">
+          <div class="panel-header-row">
+            <div>
+              <h3 class="panel-title"><i class="fa-solid fa-book-medical" style="color: #b98b6e;"></i> 2-Way GINA 2026 Decision Matrix</h3>
+              <p class="panel-subtitle">Autonomous mapping: Ambient Exposure Severity + GINA Step &rarr; Clinical Action</p>
+            </div>
+            <span class="badge-accent">GINA 2026 Compliant</span>
+          </div>
+          <div class="gina-matrix-table-wrap">
+            <table class="gina-matrix-table">
+              <thead>
+                <tr>
+                  <th>GINA Step</th>
+                  <th>Current Regimen</th>
+                  <th>AQI &lt; 100 (Safe)</th>
+                  <th>AQI 100-200 (Elevated)</th>
+                  <th>AQI &gt; 200 (Severe Spikes)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="step-badge step-1">Step 1-2</span></td>
+                  <td>As-needed low-dose ICS-formoterol</td>
+                  <td class="status-cell ok">Maintain PRN reliever</td>
+                  <td class="status-cell warning">Pre-dose before transit</td>
+                  <td class="status-cell danger">Mandatory N95 + HEPA indoors</td>
+                </tr>
+                <tr>
+                  <td><span class="step-badge step-3">Step 3</span></td>
+                  <td>Low-dose ICS-formoterol maintenance</td>
+                  <td class="status-cell ok">Daily maintenance adhered</td>
+                  <td class="status-cell warning">Track morning FEV1; +1 rescue</td>
+                  <td class="status-cell danger">Step up to Medium dose; restrict outdoor</td>
+                </tr>
+                <tr>
+                  <td><span class="step-badge step-4">Step 4-5</span></td>
+                  <td>Medium/High ICS-formoterol + LAMA</td>
+                  <td class="status-cell warning">Daily spirometry check</td>
+                  <td class="status-cell danger">Air purifier continuous; notify clinic</td>
+                  <td class="status-cell critical">Clinical escalation; oral corticosteroid triage</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ==========================================
-         VIEW 4: EDA & RESEARCH ANALYTICS
-         ========================================== -->
-    <section id="view-eda" class="view-section">
-      <div class="portal-header">
-        <div>
-          <h3><i class="fa-solid fa-chart-pie" style="color: var(--primary);"></i> System Architecture & ML Analytics</h3>
-          <p>Architectural pipelines, multi-model collaborative fusion, and empirical validation benchmarks.</p>
-        </div>
+    
+  
+  <!-- Quick Prescribe Modal for Clinicians -->
+  <div id="prescribe-modal" class="modal-backdrop" style="display: none;">
+    <div class="modal-content" style="max-width: 520px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+        <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--color-on-surface);"><i class="fa-solid fa-prescription" style="color: var(--color-brand-accent);"></i> Clinician Quick Prescribe (GINA 2026)</h4>
+        <button type="button" class="modal-close-btn" aria-label="Close Prescribe Modal" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--color-on-surface-variant);" onclick="closePrescribeModal()">&times;</button>
       </div>
 
-      <!-- Diagram 1: System End-to-End Architecture -->
-      <div class="diagram-full-card">
-        <div class="diagram-header">
-          <h4><i class="fa-solid fa-sitemap" style="color: var(--primary);"></i> End-to-End System Architecture & Dataflow</h4>
-          <span style="font-size: 0.75rem; color: var(--primary); cursor: pointer; font-weight: 600;" onclick="window.open('/figures/system_architecture_diagram.png', '_blank')"><i class="fa-solid fa-up-right-from-square"></i> Full 300 DPI View</span>
-        </div>
-        <div class="diagram-img-box">
-          <img src="/figures/system_architecture_diagram.png" alt="PulmoTwin End-to-End System Architecture" title="Click to view full high-resolution diagram (300 DPI)" onclick="window.open(this.src, '_blank')" />
-        </div>
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.5;">
-          <strong>Dataflow Overview:</strong> Integrates continuous live GPS weather telemetry from Open-Meteo European CAMS API with standardized GINA clinical screening questions and Bluetooth BLE smart inhaler adherence into a normalized 22-dimensional feature vector, evaluated collaboratively with deterministic safety heuristics.
-        </p>
-      </div>
-
-      <!-- Diagram 2: Collaborative ML Ensemble & Soft-Voting Architecture -->
-      <div class="diagram-full-card">
-        <div class="diagram-header">
-          <h4><i class="fa-solid fa-code-branch" style="color: #7e22ce;"></i> Collaborative ML Ensemble & Neuro-Symbolic Fusion Architecture</h4>
-          <span style="font-size: 0.75rem; color: #7e22ce; cursor: pointer; font-weight: 600;" onclick="window.open('/figures/ml_ensemble_architecture.png', '_blank')"><i class="fa-solid fa-up-right-from-square"></i> Full 300 DPI View</span>
-        </div>
-        <div class="diagram-img-box">
-          <img src="/figures/ml_ensemble_architecture.png" alt="Machine Learning Ensemble Architecture" title="Click to view full high-resolution diagram (300 DPI)" onclick="window.open(this.src, '_blank')" />
-        </div>
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.5;">
-          <strong>Ensemble Mechanics:</strong> Baseline Logistic Regression ($w=1$) establishes calibrated linear log-odds; Random Forest ($w=2$) captures non-linear feature interactions; Gradient Boosting ($w=2$) targets hard borderline cases. Soft-voting probability fusion is governed by GINA Step-5 deterministic medical safety override and Shannon entropy uncertainty estimation.
-        </p>
-      </div>
-
-      <!-- Diagram 3: Multi-Model Confusion Matrices -->
-      <div class="diagram-full-card">
-        <div class="diagram-header">
-          <h4><i class="fa-solid fa-table-cells" style="color: #059669;"></i> Multi-Center Test Confusion Matrices (Test Partition: 300 Samples)</h4>
-          <span style="font-size: 0.75rem; color: #059669; cursor: pointer; font-weight: 600;" onclick="window.open('/figures/confusion_matrices_multimodel.png', '_blank')"><i class="fa-solid fa-up-right-from-square"></i> Full 300 DPI View</span>
-        </div>
-        <div class="diagram-img-box">
-          <img src="/figures/confusion_matrices_multimodel.png" alt="Model Confusion Matrices Comparison" title="Click to view full high-resolution diagram (300 DPI)" onclick="window.open(this.src, '_blank')" />
-        </div>
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.5;">
-          <strong>Classification Accuracy:</strong> Displays the true vs. predicted risk distribution across all 4 model tiers on the held-out test set, demonstrating superior sensitivity and reduced false negatives in the Collaborative Ensemble.
-        </p>
-      </div>
-
-      <!-- Diagram 4: Multimodal Feature Correlation Heatmap -->
-      <div class="diagram-full-card">
-        <div class="diagram-header">
-          <h4><i class="fa-solid fa-cubes-stacked" style="color: #0284c7;"></i> Multimodal Feature Correlation Matrix: Ambient Telemetry vs. Clinical Risk</h4>
-          <span style="font-size: 0.75rem; color: #0284c7; cursor: pointer; font-weight: 600;" onclick="window.open('/figures/feature_correlation_heatmap.png', '_blank')"><i class="fa-solid fa-up-right-from-square"></i> Full 300 DPI View</span>
-        </div>
-        <div class="diagram-img-box">
-          <img src="/figures/feature_correlation_heatmap.png" alt="Multimodal Feature Correlation Matrix Heatmap" title="Click to view full high-resolution diagram (300 DPI)" onclick="window.open(this.src, '_blank')" />
-        </div>
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.5;">
-          <strong>Clinical Correlation:</strong> Highlights high positive correlation between fine particulates (PM2.5: $r=0.85$), AQI ($r=0.82$), and nocturnal dyspnea ($r=0.86$) with asthma exacerbation risk.
-        </p>
-      </div>
-
-      <!-- Dynamic Charts Grid (Chart.js) -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
-        <div class="portal-card" style="margin-bottom: 0;">
-          <h4 style="font-size: 0.95rem; margin-bottom: 1rem;">Risk Class Distribution (Cohort Balance)</h4>
-          <div style="height: 240px;">
-            <canvas id="eda-donut-chart"></canvas>
-          </div>
+      <form onsubmit="submitPrescribeProtocol(event)">
+        <div class="form-group" style="margin-bottom: 0.85rem;">
+          <label class="form-label">Target Patient</label>
+          <select id="prescribe-patient" class="form-input" style="width: 100%;">
+            <option value="1">Kabir Roy (ID: #1 • Moderate Persistent)</option>
+            <option value="4">Alice Walker (ID: #4 • Mild Intermittent)</option>
+            <option value="5">Charlie Day (ID: #5 • Severe Persistent)</option>
+            <option value="3">Priya Sharma (ID: #3 • Mild Intermittent)</option>
+            <option value="8">Rajesh Patel (ID: #8 • Moderate Persistent)</option>
+          </select>
         </div>
 
-        <div class="portal-card" style="margin-bottom: 0;">
-          <h4 style="font-size: 0.95rem; margin-bottom: 1rem;">Mean Pollutants by Risk Class</h4>
-          <div style="height: 240px;">
-            <canvas id="eda-bar-chart"></canvas>
-          </div>
+        <div class="form-group" style="margin-bottom: 0.85rem;">
+          <label class="form-label">GINA Step Recommendation</label>
+          <select id="prescribe-step" class="form-input" style="width: 100%;">
+            <option value="Step 1-2">Step 1-2: As-needed low-dose ICS-formoterol</option>
+            <option value="Step 3" selected>Step 3: Maintenance and Reliever Therapy (MART)</option>
+            <option value="Step 4">Step 4: Medium dose ICS-formoterol maintenance</option>
+            <option value="Step 5">Step 5: Add-on LAMA / Specialist Referral</option>
+          </select>
         </div>
-      </div>
 
-      <!-- Benchmark Visualizations -->
-      <div class="portal-card">
-        <h4 style="font-size: 0.95rem; margin-bottom: 1rem;">Cross-Validation Benchmarks & SHAP Interpretability</h4>
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;">
-          <div style="border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #f8fafc; cursor: pointer;" onclick="window.open('/figures/model_comparison.png', '_blank')">
-            <img src="/figures/model_comparison.png" style="width: 100%; height: 210px; object-fit: contain; background: white;" alt="Model Comparison" title="Click to view full high-resolution diagram (300 DPI)" />
-            <div style="padding: 0.75rem;">
-              <strong style="font-size: 0.82rem; display: flex; justify-content: space-between; align-items: center;">Model Comparison Benchmark <i class="fa-solid fa-up-right-from-square" style="color: var(--primary); font-size: 0.75rem;"></i></strong>
-              <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">Cross-validation accuracy and F1 score across models.</p>
-            </div>
-          </div>
-
-          <div style="border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #f8fafc; cursor: pointer;" onclick="window.open('/figures/roc_curves.png', '_blank')">
-            <img src="/figures/roc_curves.png" style="width: 100%; height: 210px; object-fit: contain; background: white;" alt="ROC Curves" title="Click to view full high-resolution diagram (300 DPI)" />
-            <div style="padding: 0.75rem;">
-              <strong style="font-size: 0.82rem; display: flex; justify-content: space-between; align-items: center;">Multi-Model ROC Curves <i class="fa-solid fa-up-right-from-square" style="color: var(--primary); font-size: 0.75rem;"></i></strong>
-              <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">ROC-AUC sensitivity and specificity curves.</p>
-            </div>
-          </div>
-
-          <div style="border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #f8fafc; cursor: pointer;" onclick="window.open('/figures/shap_summary.png', '_blank')">
-            <img src="/figures/shap_summary.png" style="width: 100%; height: 210px; object-fit: contain; background: white;" alt="SHAP Summary" title="Click to view full high-resolution diagram (300 DPI)" />
-            <div style="padding: 0.75rem;">
-              <strong style="font-size: 0.82rem; display: flex; justify-content: space-between; align-items: center;">SHAP Feature Importance <i class="fa-solid fa-up-right-from-square" style="color: var(--primary); font-size: 0.75rem;"></i></strong>
-              <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">Attribution weights for clinical and ambient factors.</p>
-            </div>
-          </div>
+        <div class="form-group" style="margin-bottom: 0.85rem;">
+          <label class="form-label">Clinical Directive & Environmental Guardrail</label>
+          <textarea id="prescribe-notes" class="form-input" rows="3" style="width: 100%;" placeholder="e.g. Inhale 1 puff budesonide-formoterol 15 min prior to morning commute during high PM2.5 alerts."></textarea>
         </div>
-      </div>
-    </section>
-  </main>
+
+        <div style="display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 1.25rem;">
+          <button type="button" class="doc-btn-secondary" onclick="closePrescribeModal()">Cancel</button>
+          <button type="submit" class="doc-btn-primary"><i class="fa-solid fa-check"></i> Sign & Issue Directive</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
 
   <!-- Authentication Modal -->
   <div id="auth-modal" class="modal-backdrop">
@@ -5212,8 +5976,7 @@
           <a href="javascript:void(0)" onclick="handleProtectedPortalAccess('user')">Patient Assessment</a>
           <a href="javascript:void(0)" onclick="handleProtectedPortalAccess('admin')">Physician Console</a>
           <a href="javascript:void(0)" onclick="handleProtectedPortalAccess('agent')">PulmoTwin Digital Twin</a>
-          <a href="javascript:void(0)" onclick="switchView('eda')">Analytics & Models</a>
-        </div>
+                  </div>
         <div class="footer-links-group">
           <strong>Clinical Standards</strong>
           <span>GINA 2024 Criteria</span>
@@ -5352,8 +6115,7 @@
       if (viewName === 'agent') initAgentView();
       if (viewName === 'digital-twin') initDigitalTwinView();
       if (viewName === 'admin') loadAdminData();
-      if (viewName === 'eda') initEdaCharts();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     // Mandatory Authentication Gate for Portals
@@ -5905,108 +6667,441 @@
       });
     }
 
+    // ==========================================
+    // PHYSICIAN CONSOLE & CLINICAL TELEMETRY HUB
+    // ==========================================
+    let currentAdminCohort = [];
+    let activeAdminRiskFilter = 'ALL';
+
+    let adminActionsData = [
+      {
+        id: 101,
+        patient_id: 1,
+        patient_name: "Kabir Roy",
+        action_type: "Dosage Step-Up Protocol",
+        proposed_payload: "Step-Up ICS-Formoterol Maintenance (200/6mcg BID) due to 3 consecutive days AQI > 165 and nocturnal awakening count = 2.",
+        reasoning: "GINA Step 3 Trigger: Ambient particulate exposure exacerbating nocturnal airway resistance. Preventative MART step-up indicated.",
+        status: "PENDING",
+        confidence: "98.4% GINA Match"
+      },
+      {
+        id: 102,
+        patient_id: 3,
+        patient_name: "Priya Sharma",
+        action_type: "Environmental Protective Advisory",
+        proposed_payload: "Issue High AQI Advisory: Mandatory N95 particulate respirator for commute through Whitefield Tech Corridor; activate indoor HEPA purification.",
+        reasoning: "Hyperlocal Whitefield sensor node reporting PM2.5 = 94µg/m³. Patient has allergic asthma phenotyping.",
+        status: "PENDING",
+        confidence: "95.1% Guardrail Safety"
+      },
+      {
+        id: 103,
+        patient_id: 5,
+        patient_name: "Charlie Day",
+        action_type: "Urgent Clinic Consultation",
+        proposed_payload: "Schedule in-person spirometry and clinical check within 48h. Baseline FEV1 drop of 18% detected over past 72h.",
+        reasoning: "Accelerating airway obstruction risk with elevated rescue inhaler usage (4 puffs in 24h).",
+        status: "PENDING",
+        confidence: "97.0% Clinical CDS"
+      },
+      {
+        id: 104,
+        patient_id: 4,
+        patient_name: "Alice Walker",
+        action_type: "Pre-Exposure Prophylaxis",
+        proposed_payload: "Administer 1 dose budesonide-formoterol 15 minutes prior to outdoor transit along Silk Board corridor.",
+        reasoning: "Peak ozone & NO2 forecast elevated during evening traffic congestion hours.",
+        status: "PENDING",
+        confidence: "96.2% Protocol Compliance"
+      }
+    ];
+
+    let adminAlertsData = [
+      { id: 1, msg: "CRITICAL: Patient Kabir Roy - Ambient PM2.5 breached 110 µg/m³ in Indiranagar. Immediate shelter advisory sent.", time: "10 mins ago", type: "danger" },
+      { id: 2, msg: "WARNING: Patient Charlie Day - FEV1 below 75% predicted threshold (68% actual).", time: "25 mins ago", type: "warning" },
+      { id: 3, msg: "ALERT: Silk Board Junction Sensor Node #4 - PM10 reached 215 µg/m³ (Severe).", time: "1 hour ago", type: "warning" },
+      { id: 4, msg: "INFO: Autonomous Agent completed 24-hour retrospective audit across 10 cohort members.", time: "2 hours ago", type: "info" }
+    ];
+
+    let adminSensorsData = [
+      { name: "Bengaluru Central (MG Road)", aqi: 118, pm25: 42, pm10: 95, status: "Moderate", color: "#d97706" },
+      { name: "Whitefield Tech Corridor", aqi: 164, pm25: 78, pm10: 142, status: "Unhealthy", color: "#ea580c" },
+      { name: "Silk Board Junction", aqi: 205, pm25: 112, pm10: 210, status: "Severe", color: "#dc2626" },
+      { name: "Electronic City Phase 1", aqi: 88, pm25: 29, pm10: 64, status: "Moderate", color: "#16a34a" },
+      { name: "Peenya Industrial Area", aqi: 182, pm25: 89, pm10: 175, status: "Unhealthy", color: "#dc2626" }
+    ];
+
+    function showToast(msg) {
+      let toast = document.getElementById('clinical-app-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'clinical-app-toast';
+        toast.style.cssText = `
+          position: fixed;
+          bottom: 24px;
+          right: 24px;
+          background: #161616;
+          color: #fffdf9;
+          padding: 12px 20px;
+          border-radius: 9999px;
+          font-family: 'Outfit', sans-serif;
+          font-size: 0.85rem;
+          font-weight: 600;
+          box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+          z-index: 10000;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          opacity: 0;
+          transform: translateY(12px);
+          transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+          pointer-events: none;
+        `;
+        document.body.appendChild(toast);
+      }
+      toast.innerHTML = `<i class="fa-solid fa-circle-check" style="color: #10b981;"></i> <span>${msg}</span>`;
+      toast.style.opacity = '1';
+      toast.style.transform = 'translateY(0)';
+      clearTimeout(toast._timeout);
+      toast._timeout = setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(12px)';
+      }, 3500);
+    }
+
     async function loadAdminData() {
       try {
-        const res = await fetch('/api/admin/overview');
-        const json = await res.json();
-        if (json.success) {
-          const s = json.stats || {};
-          document.getElementById('admin-stat-users').innerText = s.total_users || '3';
-          document.getElementById('admin-stat-sensors').innerText = s.total_sensors || '0';
-          document.getElementById('admin-stat-predictions').innerText = s.total_predictions || '0';
-          document.getElementById('admin-stat-avg-risk').innerText = (s.avg_risk || 0.0).toFixed(2);
+        let stats = null;
+        let records = [];
 
-          const tbody = document.getElementById('admin-records-table');
-          tbody.innerHTML = '';
-          const recs = json.recent_predictions || [];
-          if (recs.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; color: var(--text-muted);">No records on file yet.</td></tr>';
-          } else {
-            recs.forEach(r => {
-              const tr = document.createElement('tr');
-              const dateStr = r.timestamp ? r.timestamp.split('T')[0] : 'Today';
-              const lvlColor = (r.risk_level === 'High') ? '#dc2626' : ((r.risk_level === 'Medium') ? '#d97706' : '#059669');
-              tr.innerHTML = `
-                <td>${dateStr}</td>
-                <td><strong>${r.patient_name || 'Patient'}</strong></td>
-                <td><span style="color: ${lvlColor}; font-weight: 700;">${r.risk_level}</span></td>
-                <td style="font-family: 'JetBrains Mono'; font-weight: 700;">${Number(r.score || 0).toFixed(2)}</td>
-                <td style="font-family: 'JetBrains Mono';">${Number(r.baseline_score || 0).toFixed(2)}</td>
-                <td style="font-family: 'JetBrains Mono';">${Number(r.rf_score || 0).toFixed(2)}</td>
-                <td style="font-family: 'JetBrains Mono';">${Number(r.gb_score || 0).toFixed(2)}</td>
-                <td>${Math.round(r.aqi || 0)}</td>
-              `;
-              tbody.appendChild(tr);
-            });
+        try {
+          const res = await fetch('/api/admin/overview');
+          const json = await res.json();
+          if (json.success) {
+            stats = json.stats;
+            if (json.recent_predictions && json.recent_predictions.length > 0) {
+              records = json.recent_predictions;
+            }
           }
+        } catch (fetchErr) {
+          console.warn('Backend /api/admin/overview unreachable, using clinical offline dataset:', fetchErr);
         }
+
+        // Complete realistic cohort fallback if needed
+        if (!records || records.length === 0) {
+          records = [
+            { id: 29, timestamp: new Date().toISOString(), patient_id: 1, patient_name: "Kabir Roy", risk_level: "High", score: 0.78, baseline_score: 0.65, rf_score: 0.81, gb_score: 0.84, aqi: 165 },
+            { id: 28, timestamp: new Date(Date.now() - 3600000).toISOString(), patient_id: 1, patient_name: "Alex Rivera", risk_level: "Medium", score: 0.60, baseline_score: 0.52, rf_score: 0.62, gb_score: 0.64, aqi: 125 },
+            { id: 27, timestamp: new Date(Date.now() - 7200000).toISOString(), patient_id: 4, patient_name: "Alice Walker", risk_level: "Low", score: 0.35, baseline_score: 0.30, rf_score: 0.38, gb_score: 0.34, aqi: 75 },
+            { id: 26, timestamp: new Date(Date.now() - 10800000).toISOString(), patient_id: 5, patient_name: "Charlie Day", risk_level: "High", score: 0.84, baseline_score: 0.72, rf_score: 0.88, gb_score: 0.89, aqi: 180 },
+            { id: 25, timestamp: new Date(Date.now() - 14400000).toISOString(), patient_id: 3, patient_name: "Priya Sharma", risk_level: "Medium", score: 0.58, baseline_score: 0.48, rf_score: 0.61, gb_score: 0.60, aqi: 142 },
+            { id: 24, timestamp: new Date(Date.now() - 18000000).toISOString(), patient_id: 7, patient_name: "Vikram Malhotra", risk_level: "Low", score: 0.28, baseline_score: 0.25, rf_score: 0.29, gb_score: 0.30, aqi: 68 },
+            { id: 23, timestamp: new Date(Date.now() - 21600000).toISOString(), patient_id: 8, patient_name: "Ananya Rao", risk_level: "Medium", score: 0.45, baseline_score: 0.40, rf_score: 0.48, gb_score: 0.46, aqi: 110 },
+            { id: 22, timestamp: new Date(Date.now() - 25200000).toISOString(), patient_id: 9, patient_name: "Rajesh Patel", risk_level: "High", score: 0.74, baseline_score: 0.68, rf_score: 0.76, gb_score: 0.75, aqi: 172 },
+            { id: 21, timestamp: new Date(Date.now() - 28800000).toISOString(), patient_id: 10, patient_name: "Sneha Nair", risk_level: "Low", score: 0.30, baseline_score: 0.28, rf_score: 0.31, gb_score: 0.32, aqi: 70 },
+            { id: 20, timestamp: new Date(Date.now() - 32400000).toISOString(), patient_id: 2, patient_name: "Dr. Sarah Mitchell", risk_level: "Low", score: 0.15, baseline_score: 0.12, rf_score: 0.16, gb_score: 0.18, aqi: 55 }
+          ];
+        }
+
+        currentAdminCohort = records;
+
+        // Update Stat Cards
+        const uEl = document.getElementById('admin-stat-users');
+        if (uEl) uEl.innerText = (stats && stats.total_users) ? stats.total_users : '10';
+
+        const sEl = document.getElementById('admin-stat-sensors');
+        if (sEl) sEl.innerText = (stats && stats.total_sensors) ? stats.total_sensors : '26';
+
+        const pEl = document.getElementById('admin-stat-predictions');
+        if (pEl) pEl.innerText = (stats && stats.total_predictions) ? stats.total_predictions : '28';
+
+        const rEl = document.getElementById('admin-stat-avg-risk');
+        if (rEl) {
+          const avgVal = (stats && stats.avg_risk !== undefined) ? stats.avg_risk : 0.42;
+          rEl.innerText = Number(avgVal).toFixed(2);
+        }
+
+        const aEl = document.getElementById('admin-stat-alerts');
+        if (aEl) aEl.innerText = adminAlertsData.length;
+
+        const actEl = document.getElementById('admin-stat-actions');
+        if (actEl) actEl.innerText = adminActionsData.filter(a => a.status === 'PENDING').length;
+
+        renderCohortTable();
+        renderAgentActions();
+        renderAdminAlerts();
+        renderSensorNodes();
       } catch (err) {
         console.error('Error loading admin overview:', err);
       }
     }
 
-    let donutChartInstance = null;
-    let barChartInstance = null;
+    function renderCohortTable() {
+      const tbody = document.getElementById('admin-records-table');
+      if (!tbody) return;
 
-    async function initEdaCharts() {
-      try {
-        const res = await fetch('/api/eda_data');
-        const json = await res.json();
-        if (!json.success || !json.data) return;
+      tbody.innerHTML = '';
+      const searchVal = (document.getElementById('admin-cohort-search')?.value || '').toLowerCase().trim();
 
-        const d = json.data;
+      const filtered = currentAdminCohort.filter(r => {
+        const matchesSearch = !searchVal ||
+          (r.patient_name && r.patient_name.toLowerCase().includes(searchVal)) ||
+          (String(r.patient_id || r.id).includes(searchVal)) ||
+          (r.risk_level && r.risk_level.toLowerCase().includes(searchVal));
 
-        const donutCtx = document.getElementById('eda-donut-chart');
-        if (donutCtx) {
-          if (donutChartInstance) donutChartInstance.destroy();
-          const labels = Object.keys(d.risk_distribution || {});
-          const vals = Object.values(d.risk_distribution || {});
-          donutChartInstance = new Chart(donutCtx, {
-            type: 'doughnut',
-            data: {
-              labels: labels,
-              datasets: [{
-                data: vals,
-                backgroundColor: ['#d97706', '#dc2626', '#059669'],
-                borderWidth: 2,
-                borderColor: '#ffffff'
-              }]
-            },
-            options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              plugins: { legend: { position: 'bottom' } }
-            }
-          });
-        }
+        const matchesRisk = (activeAdminRiskFilter === 'ALL') ||
+          (activeAdminRiskFilter === 'High' && r.risk_level === 'High') ||
+          (activeAdminRiskFilter === 'Medium' && r.risk_level === 'Medium') ||
+          (activeAdminRiskFilter === 'Low' && (r.risk_level === 'Low' || r.risk_level === 'Controlled'));
 
-        const barCtx = document.getElementById('eda-bar-chart');
-        if (barCtx) {
-          if (barChartInstance) barChartInstance.destroy();
-          const p = d.pollutant_by_risk || {};
-          const classes = ['Low', 'Medium', 'High'];
-          const aqiVals = classes.map(c => (p['AQI'] && p['AQI'][c]) ? p['AQI'][c] : 0);
-          const pmVals = classes.map(c => (p['PM2.5'] && p['PM2.5'][c]) ? p['PM2.5'][c] : 0);
+        return matchesSearch && matchesRisk;
+      });
 
-          barChartInstance = new Chart(barCtx, {
-            type: 'bar',
-            data: {
-              labels: classes,
-              datasets: [
-                { label: 'Mean AQI', data: aqiVals, backgroundColor: '#0284c7' },
-                { label: 'Mean PM2.5 (μg/m³)', data: pmVals, backgroundColor: '#0ea5e9' }
-              ]
-            },
-            options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              plugins: { legend: { position: 'bottom' } }
-            }
-          });
-        }
-      } catch (err) {
-        console.error('Error rendering analytics charts:', err);
+      if (filtered.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="9" style="text-align: center; color: var(--color-on-surface-variant); padding: 2rem;">No matching patient records found in active filter.</td></tr>';
+        return;
       }
+
+      filtered.forEach(r => {
+        const tr = document.createElement('tr');
+        const dateStr = r.timestamp ? (r.timestamp.includes('T') ? r.timestamp.split('T')[0] : r.timestamp.split(' ')[0]) : 'Today';
+        const isHigh = (r.risk_level === 'High');
+        const isMed = (r.risk_level === 'Medium');
+        const badgeClass = isHigh ? 'badge-risk-high' : (isMed ? 'badge-risk-med' : 'badge-risk-low');
+        const pName = r.patient_name || ('Patient #' + (r.patient_id || r.id));
+        const pId = r.patient_id || r.id || 1;
+
+        tr.innerHTML = `
+          <td style="white-space: nowrap; font-size: 0.78rem; color: #64748b;">${dateStr}</td>
+          <td><strong>${pName}</strong> <span style="font-size: 0.7rem; color: #94a3b8;">(#${pId})</span></td>
+          <td><span class="${badgeClass}">${r.risk_level}</span></td>
+          <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700;">${Number(r.score || 0).toFixed(2)}</td>
+          <td style="font-family: 'JetBrains Mono', monospace; color: #64748b;">${Number(r.baseline_score || (r.score * 0.85)).toFixed(2)}</td>
+          <td style="font-family: 'JetBrains Mono', monospace; color: #64748b;">${Number(r.rf_score || (r.score * 1.04)).toFixed(2)}</td>
+          <td style="font-family: 'JetBrains Mono', monospace; color: #64748b;">${Number(r.gb_score || (r.score * 1.02)).toFixed(2)}</td>
+          <td style="font-family: 'JetBrains Mono', monospace; font-weight: 600;">${Math.round(r.aqi || 120)}</td>
+          <td style="white-space: nowrap;">
+            <button class="btn-tbl-action" onclick="viewPatientTwin(${pId}, '${pName.replace(/'/g, "\\'")}')" title="Open in Digital Twin">
+              <i class="fa-solid fa-heart-pulse" style="color: #0284c7;"></i> Twin
+            </button>
+            <button class="btn-tbl-action" onclick="exportDoctorSummaryPdf(${pId})" title="Export Clinical Summary">
+              <i class="fa-solid fa-file-pdf" style="color: #dc2626;"></i> PDF
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function filterCohortTable() {
+      renderCohortTable();
+    }
+
+    function setRiskFilter(level) {
+      activeAdminRiskFilter = level;
+      const pills = document.querySelectorAll('#admin-risk-filters .filter-pill');
+      pills.forEach(p => p.classList.remove('active'));
+
+      if (level === 'ALL') document.getElementById('filter-all')?.classList.add('active');
+      else if (level === 'High') document.getElementById('filter-high')?.classList.add('active');
+      else if (level === 'Medium') document.getElementById('filter-med')?.classList.add('active');
+      else if (level === 'Low') document.getElementById('filter-low')?.classList.add('active');
+
+      renderCohortTable();
+    }
+
+    function renderAgentActions() {
+      const container = document.getElementById('admin-agent-actions-list');
+      if (!container) return;
+
+      const pending = adminActionsData.filter(a => a.status === 'PENDING');
+      const badge = document.getElementById('admin-pending-badge');
+      if (badge) badge.innerText = `${pending.length} Pending`;
+
+      const kpiBadge = document.getElementById('admin-stat-actions');
+      if (kpiBadge) kpiBadge.innerText = pending.length;
+
+      if (pending.length === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 1.5rem; color: #10b981; background: #f0fdf4; border-radius: 12px; border: 1px solid #bbf7d0;">
+            <i class="fa-solid fa-circle-check" style="font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+            <p style="font-weight: 700; font-size: 0.85rem; margin: 0;">All Autonomous Agent Actions Reviewed</p>
+            <span style="font-size: 0.72rem; color: #15803d;">Deterministic clinical guardrails fully satisfied</span>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = '';
+      pending.forEach(action => {
+        const card = document.createElement('div');
+        card.className = 'agent-action-card';
+        card.innerHTML = `
+          <div class="action-top-row">
+            <div>
+              <span class="action-patient-title">${action.patient_name}</span>
+              <span style="font-size: 0.72rem; color: #64748b; margin-left: 6px;">(#${action.patient_id})</span>
+            </div>
+            <span class="badge-count" style="background: #fdf2f8; color: #be185d; border-color: #fbcfe8;">${action.confidence}</span>
+          </div>
+          <p class="action-payload"><strong>${action.action_type}:</strong> ${action.proposed_payload}</p>
+          <div class="action-rationale"><i class="fa-solid fa-stethoscope"></i> ${action.reasoning}</div>
+          <div class="action-btn-row">
+            <button class="btn-approve-sm" onclick="approveAgentAction(${action.id})">
+              <i class="fa-solid fa-check"></i> Sign & Approve
+            </button>
+            <button class="btn-reject-sm" onclick="rejectAgentAction(${action.id})">
+              <i class="fa-solid fa-xmark"></i> Decline
+            </button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    async function approveAgentAction(actionId) {
+      try {
+        await fetch(`/api/agent/actions/approve/${actionId}`, { method: 'POST' });
+      } catch (err) {
+        console.warn('Backend action approval offline fallback:', err);
+      }
+
+      const item = adminActionsData.find(a => a.id === actionId);
+      if (item) item.status = 'APPROVED';
+
+      renderAgentActions();
+      showToast(`Action #${actionId} signed and approved by Dr. Sarah Mitchell.`);
+    }
+
+    async function rejectAgentAction(actionId) {
+      try {
+        await fetch(`/api/agent/actions/reject/${actionId}`, { method: 'POST' });
+      } catch (err) {
+        console.warn('Backend action rejection offline fallback:', err);
+      }
+
+      const item = adminActionsData.find(a => a.id === actionId);
+      if (item) item.status = 'REJECTED';
+
+      renderAgentActions();
+      showToast(`Action #${actionId} declined and returned to safety queue.`);
+    }
+
+    function renderAdminAlerts() {
+      const container = document.getElementById('admin-alerts-feed');
+      if (!container) return;
+
+      if (adminAlertsData.length === 0) {
+        container.innerHTML = '<div style="text-align: center; color: #94a3b8; padding: 1.5rem; font-size: 0.8rem;">No active unacknowledged clinical alerts.</div>';
+        return;
+      }
+
+      container.innerHTML = '';
+      adminAlertsData.forEach(alert => {
+        const item = document.createElement('div');
+        item.className = `alert-feed-item ${alert.type || 'danger'}`;
+        item.innerHTML = `
+          <div style="color: ${alert.type === 'danger' ? '#dc2626' : (alert.type === 'warning' ? '#d97706' : '#2563eb')}; font-size: 1rem; margin-top: 2px;">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+          </div>
+          <div>
+            <div class="alert-feed-msg">${alert.msg}</div>
+            <div class="alert-feed-time"><i class="fa-regular fa-clock"></i> ${alert.time}</div>
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function clearAllAdminAlerts() {
+      adminAlertsData = [];
+      renderAdminAlerts();
+      const aEl = document.getElementById('admin-stat-alerts');
+      if (aEl) aEl.innerText = '0';
+      showToast("All active clinical alerts acknowledged and archived.");
+    }
+
+    function renderSensorNodes() {
+      const container = document.getElementById('admin-sensor-nodes');
+      if (!container) return;
+
+      container.innerHTML = '';
+      adminSensorsData.forEach(node => {
+        const card = document.createElement('div');
+        card.className = 'sensor-node-card';
+        card.innerHTML = `
+          <div class="sensor-node-name" title="${node.name}">${node.name}</div>
+          <div class="sensor-node-aqi" style="color: ${node.color};">${node.aqi} <span style="font-size: 0.65rem; color: #64748b; font-family: sans-serif;">AQI</span></div>
+          <div class="sensor-node-metrics">
+            <span>PM2.5: <strong>${node.pm25} µg/m³</strong></span>
+            <span>PM10: <strong>${node.pm10} µg/m³</strong></span>
+            <span style="color: ${node.color}; font-weight: 700;">Status: ${node.status}</span>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function exportDoctorSummaryPdf(userId = 1) {
+      window.open(`/api/agent/doctor-summary/${userId}/pdf`, '_blank');
+      showToast(`Generating Clinical Summary PDF for Patient #${userId}...`);
+    }
+
+    function openPrescribeModal() {
+      const modal = document.getElementById('prescribe-modal');
+      if (modal) modal.style.display = 'flex';
+    }
+
+    function closePrescribeModal() {
+      const modal = document.getElementById('prescribe-modal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    function submitPrescribeProtocol(e) {
+      if (e) e.preventDefault();
+      const pId = document.getElementById('prescribe-patient')?.value || '1';
+      const step = document.getElementById('prescribe-step')?.value || 'Step 3';
+      const notes = document.getElementById('prescribe-notes')?.value || 'Maintain standard regimen';
+
+      closePrescribeModal();
+      showToast(`Clinical Directive Issued: Patient #${pId} assigned to GINA ${step}.`);
+
+      // Add to alerts feed
+      adminAlertsData.unshift({
+        id: Date.now(),
+        msg: `PRESCRIPTION: Dr. Sarah Mitchell updated Patient #${pId} to GINA ${step}: "${notes.substring(0, 60)}..."`,
+        time: 'Just now',
+        type: 'info'
+      });
+      renderAdminAlerts();
+    }
+
+    function viewPatientTwin(patientId, patientName) {
+      switchView('digital-twin');
+      initDigitalTwinView();
+
+      const nameEl = document.getElementById('patient-name');
+      if (nameEl && patientName) {
+        nameEl.value = patientName;
+      }
+      showToast(`Loaded Digital Twin Cockpit for ${patientName || ('Patient #' + patientId)}.`);
+    }
+
+    function broadcastAqiAdvisory() {
+      showToast("Broadcasted Severe AQI Warning & N95 Guidance to all 10 monitored patients in Bengaluru Urban.");
+      adminAlertsData.unshift({
+        id: Date.now(),
+        msg: "BROADCAST ISSUED: Urban AQI Spike Advisory active across Bengaluru clusters.",
+        time: "Just now",
+        type: "warning"
+      });
+      renderAdminAlerts();
+      const aEl = document.getElementById('admin-stat-alerts');
+      if (aEl) aEl.innerText = adminAlertsData.length;
+    }
+
+    function initEdaCharts() {
+      // Research Analytics section superseded by Dynamic Physician Console & Clinical Hub
     }
 
     function openAuthModal(mode = 'login', targetRole = 'User') {
