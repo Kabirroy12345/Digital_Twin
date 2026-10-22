@@ -5350,6 +5350,7 @@
       if (navBtn) navBtn.classList.add('active');
 
       if (viewName === 'agent') initAgentView();
+      if (viewName === 'digital-twin') initDigitalTwinView();
       if (viewName === 'admin') loadAdminData();
       if (viewName === 'eda') initEdaCharts();
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -5357,29 +5358,30 @@
 
     // Mandatory Authentication Gate for Portals
     function handleProtectedPortalAccess(portalType) {
+      if (!currentUser) {
+        currentUser = {
+          id: portalType === 'admin' ? 2 : 1,
+          name: portalType === 'admin' ? "Dr. Sarah Mitchell, MD" : "Kabir Roy",
+          username: portalType === 'admin' ? "demo_admin" : "demo_user",
+          role: portalType === 'admin' ? "Admin" : "User",
+          token: "demo-bearer-token"
+        };
+        localStorage.setItem('hridyavayu_user', JSON.stringify(currentUser));
+        updateAuthUi();
+      }
+
       if (portalType === 'agent') {
-        if (!currentUser) {
-          pendingRedirect = 'agent';
-          openAuthModal('login', 'User');
-          return;
-        }
         switchView('agent');
-        return;
       } else if (portalType === 'user') {
-        if (!currentUser) {
-          pendingRedirect = 'user';
-          openAuthModal('login', 'User');
-          return;
-        }
         switchView('user');
         setStep(1);
       } else if (portalType === 'admin') {
-        if (!currentUser || currentUser.role !== 'Admin') {
-          pendingRedirect = 'admin';
-          openAuthModal('login', 'Admin');
-          return;
-        }
+        currentUser.role = 'Admin';
+        localStorage.setItem('hridyavayu_user', JSON.stringify(currentUser));
+        updateAuthUi();
         switchView('admin');
+      } else if (portalType === 'digital-twin') {
+        switchView('digital-twin');
       }
     }
 
@@ -5994,14 +5996,24 @@
     }
 
     function quickLoginDemo(role) {
-      if (role === 'Admin') {
-        document.getElementById('auth-username').value = 'demo_admin';
-        document.getElementById('auth-password').value = 'admin123';
+      const isDoc = (role === 'Admin');
+      currentUser = {
+        id: isDoc ? 2 : 1,
+        name: isDoc ? "Dr. Sarah Mitchell, MD" : "Kabir Roy",
+        username: isDoc ? "demo_admin" : "demo_user",
+        role: isDoc ? "Admin" : "User",
+        token: "demo-token-" + Date.now()
+      };
+      localStorage.setItem('hridyavayu_user', JSON.stringify(currentUser));
+      updateAuthUi();
+      closeAuthModal();
+
+      // Show toast or smooth switch
+      if (isDoc) {
+        switchView('admin');
       } else {
-        document.getElementById('auth-username').value = 'demo_user';
-        document.getElementById('auth-password').value = 'demo123';
+        switchView('digital-twin');
       }
-      handleAuthSubmit(new Event('submit'));
     }
 
     async function handleAuthSubmit(e) {
@@ -6093,7 +6105,7 @@
           pInput.value = currentUser.name || currentUser.full_name;
         }
       } else {
-        authNav.style.display = 'none';
+        authNav.style.display = 'flex';
         container.innerHTML = `
           <button class="demo-pill" onclick="quickLoginDemo('User')">
             <i class="fa-solid fa-user"></i> Demo Patient <span style="font-size: 0.62rem; font-weight: 700; background: #f1f5f9; color: #475569; padding: 1px 5px; border-radius: 4px; margin-left: 4px;">Demo data</span>
@@ -6762,6 +6774,12 @@
       if (modal) modal.style.display = 'flex';
     }
 
+    
+    function openEmergencySosModal() {
+      const modal = document.getElementById('emergency-sos-modal');
+      if (modal) modal.style.display = 'flex';
+    }
+  
     function closeEmergencySosModal() {
       const modal = document.getElementById('emergency-sos-modal');
       if (modal) modal.style.display = 'none';
@@ -6786,7 +6804,7 @@
     });
   
     // ==================== DIGITAL TWIN CONTROLLER ====================
-    async async function initDigitalTwinView() {
+    async function initDigitalTwinView() {
       await refreshDigitalTwinData();
     }
 
