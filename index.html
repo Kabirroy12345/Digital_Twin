@@ -3109,6 +3109,168 @@
       border-color: #dc2626;
       transform: translateY(-1px);
     }
+
+    /* ==========================================================================
+       HERO VISUAL SHOWCASE & TELEMETRY PILLS
+       ========================================================================== */
+    .hero-right-column {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      min-height: auto;
+    }
+
+    .hero-visual-card {
+      position: relative;
+      width: 100%;
+      max-width: 530px;
+      border-radius: 22px;
+      overflow: visible;
+      cursor: pointer;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-visual-card:hover {
+      transform: translateY(-4px) scale(1.01);
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 2px solid rgba(215, 203, 188, 0.85);
+      box-shadow: 0 16px 40px -10px rgba(185, 139, 110, 0.22), 0 2px 10px rgba(0, 0, 0, 0.04);
+      background: #fffdf9;
+    }
+
+    .hero-showcase-img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .hero-visual-card:hover .hero-showcase-img {
+      transform: scale(1.03);
+    }
+
+    .hero-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(22,22,22,0.7) 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 1.25rem 1.5rem;
+      opacity: 0.95;
+      transition: opacity 0.3s ease;
+    }
+
+    .hero-overlay-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #fffdf9;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      background: rgba(22, 22, 22, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 0.45rem 1.1rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-floating-pill {
+      position: absolute;
+      background: rgba(255, 253, 249, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(215, 203, 188, 0.85);
+      border-radius: 14px;
+      padding: 0.55rem 0.95rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      z-index: 5;
+      transition: transform 0.25s ease;
+    }
+
+    .hero-floating-pill:hover {
+      transform: translateY(-2px);
+    }
+
+    .pill-top-right {
+      top: -14px;
+      right: -10px;
+    }
+
+    .pill-bottom-left {
+      bottom: -14px;
+      left: -10px;
+    }
+
+    .pill-bottom-right {
+      bottom: -14px;
+      right: -10px;
+    }
+
+    .pill-title {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #8c674a;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .pill-metrics {
+      display: block;
+      font-size: 0.78rem;
+      color: #161616;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+    }
+
+    .pulse-indicator-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #0284c7;
+      box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.7);
+      animation: pulseBlueDot 2s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulseBlueDot {
+      0% { box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(2, 132, 199, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(2, 132, 199, 0); }
+    }
+
+    @media (max-width: 900px) {
+      .hero-split {
+        grid-template-columns: 1fr;
+      }
+      .hero-right-column {
+        margin-top: 1.5rem;
+        display: flex !important;
+      }
+      .hero-showcase-img {
+        height: 280px;
+      }
+      .pill-top-right, .pill-bottom-left, .pill-bottom-right {
+        position: static;
+        margin-top: 0.5rem;
+      }
+    }
 </style>
 </head>
 <body>
@@ -3257,7 +3419,41 @@
           </div>
 
           <!-- Right Hero Column: Spacer giving 100% unobstructed view to background artwork -->
-          <div class="hero-right-column" aria-hidden="true"></div>
+          <div class="hero-right-column">
+            <div class="hero-visual-card" onclick="switchView('digital-twin'); initDigitalTwinView();" title="Click to launch Cardiopulmonary Digital Twin Cockpit">
+              <div class="hero-image-wrapper">
+                <img src="web_ui/assets/connected_care_nebulizer_showcase.png" onerror="this.onerror=null; this.src='assets/connected_care_nebulizer_showcase.png';" alt="PulmoTwin Multimodal Cardiopulmonary Digital Twin Connected Care Showcase" class="hero-showcase-img" />
+                <div class="hero-image-overlay">
+                  <span class="hero-overlay-cta"><i class="fa-solid fa-heart-pulse"></i> Launch 3D Digital Twin</span>
+                </div>
+              </div>
+
+              <!-- Floating Telemetry Pills on Visual -->
+              <div class="hero-floating-pill pill-top-right">
+                <div class="pulse-indicator-dot"></div>
+                <div>
+                  <span class="pill-title">Live Biomarker Telemetry</span>
+                  <span class="pill-metrics">SpO2: <strong>98%</strong> &bull; FEV1: <strong>88%</strong> &bull; HR: <strong>72 bpm</strong></span>
+                </div>
+              </div>
+
+              <div class="hero-floating-pill pill-bottom-left">
+                <i class="fa-solid fa-shield-halved" style="color: #10b981; font-size: 1.15rem;"></i>
+                <div>
+                  <span class="pill-title">GINA 2026 Protocol</span>
+                  <span class="pill-metrics" style="color: #059669; font-weight: 700;">Airway Resistance Stabilized</span>
+                </div>
+              </div>
+
+              <div class="hero-floating-pill pill-bottom-right">
+                <i class="fa-solid fa-tower-broadcast" style="color: #d97706; font-size: 1.1rem;"></i>
+                <div>
+                  <span class="pill-title">Bengaluru Urban Grid</span>
+                  <span class="pill-metrics">AQI: <strong>118</strong> (Moderate)</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Nova Signature Dark Stats Strip -->
