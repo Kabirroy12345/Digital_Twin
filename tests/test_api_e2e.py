@@ -639,7 +639,7 @@ def test_data_export_and_cascade_account_deletion_across_all_tables(client):
         conn.commit()
 
     with app.app_context():
-        db.session.add(SensorData(user_id=temp_user_id, air_quality=120, timestamp=datetime.utcnow()))
+        db.session.add(SensorData(user_id=temp_user_id, air_quality=120, pm25=35.0, so2_level=12.0, no2_level=25.0, co2_level=410.0, humidity=55.0, temperature=28.0, timestamp=datetime.utcnow()))
         db.session.add(SymptomDiary(user_id=temp_user_id, symptoms="Cough", timestamp=datetime.utcnow()))
         db.session.add(AgentAction(user_id=temp_user_id, action_type="sms", recipient="Kin", proposed_payload="Alert", reasoning="High AQI"))
         db.session.add(AgentLog(user_id=temp_user_id, trigger="test", reasoning="Test log", input_state=json.dumps({"test": "state"})))
