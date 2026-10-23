@@ -357,7 +357,7 @@
     .landing-hero-backdrop {
       position: relative;
       background-color: #faf6ee;
-      background-image: url('/web_ui/assets/connected_care_nebulizer_showcase.png');
+      background-image: url('web_ui/assets/connected_care_nebulizer_showcase.png');
       background-size: cover;
       background-position: right top;
       background-repeat: no-repeat;
@@ -632,7 +632,7 @@
         background-position: center top;
         background-size: cover;
         background-image: linear-gradient(180deg, rgba(250, 246, 239, 0.94) 0%, rgba(250, 246, 239, 0.98) 100%),
-                          url('/web_ui/assets/connected_care_nebulizer_showcase.png');
+                          url('web_ui/assets/connected_care_nebulizer_showcase.png');
       }
       .hero-stats-strip {
         grid-template-columns: repeat(2, 1fr);
@@ -3111,58 +3111,88 @@
     }
 
     /* ==========================================================================
-       HERO VISUAL SHOWCASE & TELEMETRY PILLS
+       HERO VISUAL SHOWCASE (EXPANSIVE & UNCLUTTERED)
        ========================================================================== */
+    .hero-split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 2.25rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
     .hero-right-column {
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
       z-index: 2;
-      min-height: auto;
+      width: 100%;
     }
 
     .hero-visual-card {
       position: relative;
       width: 100%;
-      max-width: 530px;
-      border-radius: 22px;
-      overflow: visible;
+      max-width: 580px;
+      border-radius: 24px;
       cursor: pointer;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .hero-visual-card:hover {
-      transform: translateY(-4px) scale(1.01);
+      transform: translateY(-4px);
+    }
+
+    .hero-live-pill {
+      align-self: flex-end;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(215, 203, 188, 0.9);
+      border-radius: 9999px;
+      padding: 0.35rem 0.95rem;
+      font-size: 0.75rem;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      color: #161616;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      margin-bottom: -0.25rem;
     }
 
     .hero-image-wrapper {
       position: relative;
       width: 100%;
-      border-radius: 20px;
+      border-radius: 22px;
       overflow: hidden;
       border: 2px solid rgba(215, 203, 188, 0.85);
-      box-shadow: 0 16px 40px -10px rgba(185, 139, 110, 0.22), 0 2px 10px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 16px 40px -10px rgba(185, 139, 110, 0.2), 0 2px 10px rgba(0, 0, 0, 0.04);
       background: #fffdf9;
     }
 
     .hero-showcase-img {
       width: 100%;
-      height: 380px;
+      height: clamp(380px, 42vw, 470px);
       object-fit: cover;
-      object-position: center;
+      object-position: center 25%;
       display: block;
       transition: transform 0.5s ease;
     }
 
     .hero-visual-card:hover .hero-showcase-img {
-      transform: scale(1.03);
+      transform: scale(1.025);
     }
 
     .hero-image-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(22,22,22,0.7) 100%);
+      background: linear-gradient(180deg, rgba(0,0,0,0) 65%, rgba(22,22,22,0.65) 100%);
       display: flex;
       align-items: flex-end;
       padding: 1.25rem 1.5rem;
@@ -3178,70 +3208,66 @@
       font-family: 'Outfit', sans-serif;
       font-size: 0.88rem;
       font-weight: 700;
-      background: rgba(22, 22, 22, 0.85);
+      background: rgba(22, 22, 22, 0.82);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      padding: 0.45rem 1.1rem;
+      padding: 0.5rem 1.15rem;
       border-radius: 9999px;
       border: 1px solid rgba(255, 255, 255, 0.25);
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      transition: background 0.2s ease;
     }
 
-    .hero-floating-pill {
-      position: absolute;
-      background: rgba(255, 253, 249, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1.5px solid rgba(215, 203, 188, 0.85);
-      border-radius: 14px;
-      padding: 0.55rem 0.95rem;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    .hero-visual-card:hover .hero-overlay-cta {
+      background: var(--primary);
+    }
+
+    .hero-telemetry-dock {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(215, 203, 188, 0.85);
+      border-radius: 16px;
+      padding: 0.75rem 1.25rem;
       display: flex;
       align-items: center;
-      gap: 0.65rem;
-      z-index: 5;
-      transition: transform 0.25s ease;
+      justify-content: space-between;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
     }
 
-    .hero-floating-pill:hover {
-      transform: translateY(-2px);
+    .dock-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
     }
 
-    .pill-top-right {
-      top: -14px;
-      right: -10px;
-    }
-
-    .pill-bottom-left {
-      bottom: -14px;
-      left: -10px;
-    }
-
-    .pill-bottom-right {
-      bottom: -14px;
-      right: -10px;
-    }
-
-    .pill-title {
-      display: block;
+    .dock-label {
       font-size: 0.68rem;
       font-weight: 700;
       color: #8c674a;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
 
-    .pill-metrics {
-      display: block;
+    .dock-val {
       font-size: 0.78rem;
       color: #161616;
       font-family: 'Outfit', sans-serif;
       font-weight: 600;
     }
 
+    .dock-divider {
+      width: 1px;
+      height: 28px;
+      background: rgba(215, 203, 188, 0.7);
+    }
+
     .pulse-indicator-dot {
-      width: 10px;
-      height: 10px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
       background: #0284c7;
       box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.7);
@@ -3251,7 +3277,7 @@
 
     @keyframes pulseBlueDot {
       0% { box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.7); }
-      70% { box-shadow: 0 0 0 8px rgba(2, 132, 199, 0); }
+      70% { box-shadow: 0 0 0 7px rgba(2, 132, 199, 0); }
       100% { box-shadow: 0 0 0 0 rgba(2, 132, 199, 0); }
     }
 
@@ -3261,14 +3287,14 @@
       }
       .hero-right-column {
         margin-top: 1.5rem;
-        display: flex !important;
       }
-      .hero-showcase-img {
-        height: 280px;
+      .hero-telemetry-dock {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
       }
-      .pill-top-right, .pill-bottom-left, .pill-bottom-right {
-        position: static;
-        margin-top: 0.5rem;
+      .dock-divider {
+        display: none;
       }
     }
 </style>
@@ -3421,35 +3447,35 @@
           <!-- Right Hero Column: Spacer giving 100% unobstructed view to background artwork -->
           <div class="hero-right-column">
             <div class="hero-visual-card" onclick="switchView('digital-twin'); initDigitalTwinView();" title="Click to launch Cardiopulmonary Digital Twin Cockpit">
+              <!-- Top Live Status Pill -->
+              <div class="hero-live-pill">
+                <span class="pulse-indicator-dot"></span>
+                <span>Live IoT Telemetry &bull; <strong>SpO2 98%</strong> &bull; <strong>FEV1 88%</strong></span>
+              </div>
+
+              <!-- Expansive Image Showcase Container -->
               <div class="hero-image-wrapper">
                 <img src="web_ui/assets/connected_care_nebulizer_showcase.png" onerror="this.onerror=null; this.src='assets/connected_care_nebulizer_showcase.png';" alt="PulmoTwin Multimodal Cardiopulmonary Digital Twin Connected Care Showcase" class="hero-showcase-img" />
                 <div class="hero-image-overlay">
-                  <span class="hero-overlay-cta"><i class="fa-solid fa-heart-pulse"></i> Launch 3D Digital Twin</span>
+                  <span class="hero-overlay-cta"><i class="fa-solid fa-heart-pulse"></i> Open 3D Digital Twin Cockpit <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem; margin-left: 4px;"></i></span>
                 </div>
               </div>
 
-              <!-- Floating Telemetry Pills on Visual -->
-              <div class="hero-floating-pill pill-top-right">
-                <div class="pulse-indicator-dot"></div>
-                <div>
-                  <span class="pill-title">Live Biomarker Telemetry</span>
-                  <span class="pill-metrics">SpO2: <strong>98%</strong> &bull; FEV1: <strong>88%</strong> &bull; HR: <strong>72 bpm</strong></span>
+              <!-- Docked 3-Point Telemetry Status Strip -->
+              <div class="hero-telemetry-dock">
+                <div class="dock-item">
+                  <span class="dock-label"><i class="fa-solid fa-heart-pulse" style="color: #0284c7;"></i> Live Biomarkers</span>
+                  <span class="dock-val">SpO2 98% &bull; HR 72 bpm</span>
                 </div>
-              </div>
-
-              <div class="hero-floating-pill pill-bottom-left">
-                <i class="fa-solid fa-shield-halved" style="color: #10b981; font-size: 1.15rem;"></i>
-                <div>
-                  <span class="pill-title">GINA 2026 Protocol</span>
-                  <span class="pill-metrics" style="color: #059669; font-weight: 700;">Airway Resistance Stabilized</span>
+                <div class="dock-divider"></div>
+                <div class="dock-item">
+                  <span class="dock-label"><i class="fa-solid fa-shield-halved" style="color: #10b981;"></i> GINA 2026 Status</span>
+                  <span class="dock-val" style="color: #059669; font-weight: 700;">Airway Stabilized</span>
                 </div>
-              </div>
-
-              <div class="hero-floating-pill pill-bottom-right">
-                <i class="fa-solid fa-tower-broadcast" style="color: #d97706; font-size: 1.1rem;"></i>
-                <div>
-                  <span class="pill-title">Bengaluru Urban Grid</span>
-                  <span class="pill-metrics">AQI: <strong>118</strong> (Moderate)</span>
+                <div class="dock-divider"></div>
+                <div class="dock-item">
+                  <span class="dock-label"><i class="fa-solid fa-wind" style="color: #d97706;"></i> Bengaluru Sensor</span>
+                  <span class="dock-val">AQI 118 (Moderate)</span>
                 </div>
               </div>
             </div>
@@ -3547,20 +3573,20 @@
       <div class="india-crisis-card">
         <div class="india-img-box" id="india-slideshow-box">
           <!-- Slides (Automatic 5s rotation with smooth transition, properly centered) -->
-          <div class="crisis-slide active" data-index="0" onclick="window.open('/web_ui/assets/slideshow/slide_1.png', '_blank')">
-            <img src="/web_ui/assets/slideshow/slide_1.png" alt="Asthma Impact and Early Detection Dashboard" title="Click to view full diagram" />
+          <div class="crisis-slide active" data-index="0" onclick="window.open('web_ui/assets/slideshow/slide_1.png', '_blank')">
+            <img src="web_ui/assets/slideshow/slide_1.png" onerror="this.onerror=null; this.src='assets/slideshow/slide_1.png';" alt="Asthma Impact and Early Detection Dashboard" title="Click to view full diagram" />
           </div>
-          <div class="crisis-slide" data-index="1" onclick="window.open('/web_ui/assets/slideshow/slide_2.png', '_blank')">
-            <img src="/web_ui/assets/slideshow/slide_2.png" alt="Indian Urban PM2.5 Trends" title="Click to view full diagram" />
+          <div class="crisis-slide" data-index="1" onclick="window.open('web_ui/assets/slideshow/slide_2.png', '_blank')">
+            <img src="web_ui/assets/slideshow/slide_2.png" onerror="this.onerror=null; this.src='assets/slideshow/slide_2.png';" alt="Indian Urban PM2.5 Trends" title="Click to view full diagram" />
           </div>
-          <div class="crisis-slide" data-index="2" onclick="window.open('/web_ui/assets/slideshow/slide_3.png', '_blank')">
-            <img src="/web_ui/assets/slideshow/slide_3.png" alt="India's Rising Asthma Burden" title="Click to view full diagram" />
+          <div class="crisis-slide" data-index="2" onclick="window.open('web_ui/assets/slideshow/slide_3.png', '_blank')">
+            <img src="web_ui/assets/slideshow/slide_3.png" onerror="this.onerror=null; this.src='assets/slideshow/slide_3.png';" alt="India's Rising Asthma Burden" title="Click to view full diagram" />
           </div>
-          <div class="crisis-slide" data-index="3" onclick="window.open('/web_ui/assets/slideshow/slide_4.png', '_blank')">
-            <img src="/web_ui/assets/slideshow/slide_4.png" alt="Urban Asthma Risk: Pollutant Insights" title="Click to view full diagram" />
+          <div class="crisis-slide" data-index="3" onclick="window.open('web_ui/assets/slideshow/slide_4.png', '_blank')">
+            <img src="web_ui/assets/slideshow/slide_4.png" onerror="this.onerror=null; this.src='assets/slideshow/slide_4.png';" alt="Urban Asthma Risk: Pollutant Insights" title="Click to view full diagram" />
           </div>
-          <div class="crisis-slide" data-index="4" onclick="window.open('/web_ui/assets/slideshow/slide_5.png', '_blank')">
-            <img src="/web_ui/assets/slideshow/slide_5.png" alt="Winter Air Pollution and Asthma Risk" title="Click to view full diagram" />
+          <div class="crisis-slide" data-index="4" onclick="window.open('web_ui/assets/slideshow/slide_5.png', '_blank')">
+            <img src="web_ui/assets/slideshow/slide_5.png" onerror="this.onerror=null; this.src='assets/slideshow/slide_5.png';" alt="Winter Air Pollution and Asthma Risk" title="Click to view full diagram" />
           </div>
 
           <!-- Subtle Manual Navigation Controls -->
@@ -5219,8 +5245,8 @@
             <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(2, 132, 199, 0.2); border: 1px solid #0284c7; color: #38bdf8; font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">
               <i class="fa-solid fa-microchip"></i> Digital Twin Challenge 2026 • Happiest Health Showcase
             </div>
-            <h2 style="font-size: 1.85rem; font-weight: 800; margin: 0 0 0.5rem 0; letter-spacing: -0.02em;">🫁 PulmoTwin: Cardiopulmonary Virtual Replica</h2>
-            <p style="color: #94a3b8; font-size: 0.95rem; margin: 0; max-width: 650px; line-height: 1.5;">
+            <h2 style="font-size: 1.85rem; font-weight: 800; color: #ffffff !important; margin: 0 0 0.5rem 0; letter-spacing: -0.02em;">🫁 PulmoTwin: Cardiopulmonary Virtual Replica</h2>
+            <p style="color: #cbd5e1 !important; font-size: 0.95rem; margin: 0; max-width: 650px; line-height: 1.5;">
               Dynamic patient physiology simulation pairing continuous wearable telemetry with ABDM/FHIR longitudinal health records. Predicts acute adverse respiratory exacerbations 4 to 24 hours before onset.
             </p>
           </div>
