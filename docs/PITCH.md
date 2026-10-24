@@ -9,7 +9,9 @@ Updated: October 2026 • Certified Clean Submission
 # PulmoTwin Digital Twin — Hackathon Pitch Deck & Technical Dossier
 **Event**: Happiest Health Digital Twin Challenge 2026  
 **Track**: AGENTIC AI (Healthcare Domain)  
-**One-Liner**: *"An autonomous AI agent that turns asthma risk into action — planning the patient's day around air quality, asking for approval before acting, and staying strictly inside deterministic clinical safety rails."*
+**One-Liner**: *"An autonomous AI agent that turns asthma risk into action — planning the patient's day around air quality, asking for approval before acting, and staying strictly inside deterministic clinical safety rails."*  
+**Official Demo Video**: [https://www.youtube.com/watch?v=i7NJstq8_ZE](https://www.youtube.com/watch?v=i7NJstq8_ZE)  
+**Live Interactive Cockpit**: [https://kabirroy12345.github.io/Digital_Twin/](https://kabirroy12345.github.io/Digital_Twin/)  
 
 ---
 

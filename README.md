@@ -24,7 +24,7 @@ Updated: October 2026 • Certified Clean Submission
 ### 🏆 Official Submission for Digital Twin Challenge 2026
 **Happiest Health • Reimagining & Reforming Healthcare in India Summit 2026, Bengaluru**
 
-[🌐 **Live Interactive Web Cockpit**](https://kabirroy12345.github.io/Digital_Twin/) • [📺 Demo Video (Unlisted YouTube)](#-2-minimum-20-minute-official-demo-video-unlisted-youtube--ppt-walkthrough) • [📑 Presentation PDF (Pitch Deck)](docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf) • [🏗️ Architecture Diagram (PDF)](docs/Architecture_Diagram.pdf) • [📋 Demo Video Script](docs/DEMO_VIDEO_SCRIPT.md)
+[🌐 **Live Interactive Web Cockpit**](https://kabirroy12345.github.io/Digital_Twin/) • [📺 Demo Video (YouTube)](https://www.youtube.com/watch?v=i7NJstq8_ZE) • [📑 Presentation PDF (Pitch Deck)](docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf) • [🏗️ Architecture Diagram (PDF)](docs/Architecture_Diagram.pdf) • [📋 Demo Video Script](docs/DEMO_VIDEO_SCRIPT.md)
 
 </div>
 
@@ -74,7 +74,7 @@ The following checklist directly maps to the official **12-Point Submission Crit
 | **5** | **Healthcare Use Case** | ✅ Included | [Section 5: Healthcare Use Case](#-5-healthcare-use-case-what-is-pulmotwin) (Cardiopulmonary Digital Twin & Proactive Intervention) |
 | **6** | **Technical Stack** | ✅ Included | [Section 6: Technical Stack](#️-6-technical-stack) (Python 3.11, Scikit-Learn, ODE differential kinetics, ABDM FHIR R4, ES6 JS) |
 | **7** | **AI/ML Model or Framework Details** | ✅ Included | [Section 7: AI/ML Model & Framework Details](#-7-aiml-model--framework-details) (Multi-Model Stacking Ensemble with 82.95% High-Risk Sensitivity) |
-| **8** | **Minimum 20-Minute Video** | ✅ Included | [Section 2: Minimum 20-Minute Official Demo Video](#-2-minimum-20-minute-official-demo-video-unlisted-youtube--ppt-walkthrough) + [Spoken Script](docs/DEMO_VIDEO_SCRIPT.md) |
+| **8** | **Minimum 20-Minute Video** | ✅ Complete | [▶️ Watch 23-Min Demo on YouTube](https://www.youtube.com/watch?v=i7NJstq8_ZE) • [Section 2: Video Walkthrough](#-2-minimum-20-minute-official-demo-video-youtube--ppt-walkthrough) + [Spoken Script](docs/DEMO_VIDEO_SCRIPT.md) |
 | **9** | **Open-Source License Details** | ✅ Included | [Section 12: Open-Source License](#-12-open-source-license) ([`LICENSE`](LICENSE) - MIT Open-Source) |
 | **10** | **Architecture Diagram (PDF/PPT format)** | ✅ Included | [`docs/Architecture_Diagram.pdf`](docs/Architecture_Diagram.pdf) (High-resolution 5-stage blueprint) |
 | **11** | **Presentation in PDF/PPT format** | ✅ Included | [`docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf`](docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf) (6-slide executive deck covering clinical outcomes) |
@@ -82,11 +82,12 @@ The following checklist directly maps to the official **12-Point Submission Crit
 
 ---
 
-## 🎥 2. Minimum 20-Minute Official Demo Video (Unlisted YouTube / PPT Walkthrough)
+## 🎥 2. Minimum 20-Minute Official Demo Video (YouTube / PPT Walkthrough)
 
-> 📺 **Official Walkthrough Link:**  
-> **[▶️ Click to Watch PulmoTwin 21-Minute Full Prototype Demonstration (Unlisted YouTube)](https://youtu.be/dQw4w9WgXcQ)**  
-> *(Action Required for Submission: Replace placeholder link with your recorded unlisted YouTube video or presentation recording before final evaluation).*
+> 📺 **Official Prototype Demonstration Video:**  
+> **[▶️ Click to Watch PulmoTwin 23-Minute Full Prototype Demonstration (YouTube)](https://www.youtube.com/watch?v=i7NJstq8_ZE)**  
+> 🔗 Direct Link: **[https://www.youtube.com/watch?v=i7NJstq8_ZE](https://www.youtube.com/watch?v=i7NJstq8_ZE)**  
+> *(Comprehensive 23-minute prototype walkthrough: multimodal clinical EHR pairing, continuous wearable telemetry streaming, in-silico airway resistance simulation, counterfactual "What-If" sandbox, and dynamic physician console).*
 
 ### Video Structure & Timestamps (Total Duration: 21:00)
 - **00:00 – 02:30**: **Part 1: The Healthcare Crisis in India** — 37.9M asthma burden, 42% global mortality share, and why reactive care fails in Indian metros.
@@ -324,7 +325,7 @@ Open your browser and navigate to:
 | **Predictive Algorithmic Model** | Multimodal Stacking Ensemble (Logistic Regression + Random Forest + Gradient Boosting Classifier) predicting acute adverse exacerbation events 8-24h in advance. | ✅ [`models.py`](models.py) / [`app.py`](app.py) |
 | **Conceptual Doctor UI Dashboard** | Interactive **Physician Console** (`view-admin`) featuring real-time patient cohort triaging, clinician approval queue, critical alerts, sensor grid, GINA matrix, and PDF exports. | ✅ [`web_ui/index.html`](web_ui/index.html) |
 | **Data Privacy & Sandbox Rules** | 100% synthetic / anonymized data following Synthea & MIMIC-IV clinical distributions. Zero PII. Aligned with India's **DPDP Act 2023** and **HIPAA**. | ✅ [`data_generator.py`](data_generator.py) / [`AUDIT.md`](AUDIT.md) |
-| **Minimum 20-Minute Video Script** | Detailed 21-minute scene-by-scene presentation and demonstration script with exact on-screen directions and timestamps. | ✅ [`docs/DEMO_VIDEO_SCRIPT.md`](docs/DEMO_VIDEO_SCRIPT.md) |
+| **Minimum 20-Minute Video & Script** | Full 23-minute YouTube walkthrough demonstration ([`https://www.youtube.com/watch?v=i7NJstq8_ZE`](https://www.youtube.com/watch?v=i7NJstq8_ZE)) plus scene-by-scene spoken script. | ✅ [Watch Video](https://www.youtube.com/watch?v=i7NJstq8_ZE) / [`docs/DEMO_VIDEO_SCRIPT.md`](docs/DEMO_VIDEO_SCRIPT.md) |
 | **Architecture Diagram (PDF format)** | Official 5-stage architectural blueprint detailing multimodal ingestion, digital twin engine, counterfactual sandbox, and CDS. | ✅ [`docs/Architecture_Diagram.pdf`](docs/Architecture_Diagram.pdf) |
 | **Presentation Deck (PDF format)** | Executive 6-slide summit presentation deck covering clinical motivation, architecture, outcomes, and translation roadmap. | ✅ [`docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf`](docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf) |
 | **Open-Source License** | Complete MIT Open-Source License included in repository root. | ✅ [`LICENSE`](LICENSE) |

@@ -11,6 +11,8 @@ Updated: October 2026 • Certified Clean Submission
 **Summit**: Reimagining & Reforming Healthcare in India Summit 2026, Bengaluru  
 **Project**: PulmoTwin — Multimodal Cardiopulmonary Digital Twin for Proactive Adverse Event Forecasting & Personalized Clinical Intervention  
 **Team**: Kabir Roy (Team Lead, rakeshkabir@gmail.com)  
+**Official Video Link**: [https://www.youtube.com/watch?v=i7NJstq8_ZE](https://www.youtube.com/watch?v=i7NJstq8_ZE)  
+**Live Interactive Cockpit**: [https://kabirroy12345.github.io/Digital_Twin/](https://kabirroy12345.github.io/Digital_Twin/)  
 
 ---
 
