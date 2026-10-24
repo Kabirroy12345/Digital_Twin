@@ -24,7 +24,7 @@ Updated: October 2026 • Certified Clean Submission
 ### 🏆 Official Submission for Digital Twin Challenge 2026
 **Happiest Health • Reimagining & Reforming Healthcare in India Summit 2026, Bengaluru**
 
-[🌐 **Live Interactive Prototype (HTTPS)**](https://233846b3cf52b2.lhr.life) • [📺 Demo Video (Unlisted YouTube)](#-2-1520-minute-official-demo-video) • [📑 Presentation PDF (Pitch Deck)](docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf) • [🏗️ Architecture Diagram (PDF)](docs/Architecture_Diagram.pdf) • [📋 Demo Video Script](docs/DEMO_VIDEO_SCRIPT.md)
+[🌐 **Live Interactive Web Cockpit**](https://kabirroy12345.github.io/Digital_Twin/) • [📺 Demo Video (Unlisted YouTube)](#-2-minimum-20-minute-official-demo-video-unlisted-youtube--ppt-walkthrough) • [📑 Presentation PDF (Pitch Deck)](docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf) • [🏗️ Architecture Diagram (PDF)](docs/Architecture_Diagram.pdf) • [📋 Demo Video Script](docs/DEMO_VIDEO_SCRIPT.md)
 
 </div>
 
@@ -37,9 +37,9 @@ Updated: October 2026 • Certified Clean Submission
 ---
 
 
-> 🌐 **Live Interactive Deployment**: [https://56cecb65b1cbae.lhr.life](https://56cecb65b1cbae.lhr.life)  
-> 📄 **Global CDN Demo (GitHub Pages)**: [https://kabirroy12345.github.io/Digital_Twin/](https://kabirroy12345.github.io/Digital_Twin/)  
-> 🏥 **Physician Console**: Built-in interactive triaging, clinical CDS, and doctor summary PDF export.
+> 🌐 **Live Interactive Deployment**: [https://kabirroy12345.github.io/Digital_Twin/](https://kabirroy12345.github.io/Digital_Twin/) *(Instant In-Browser Physiological Engine + GPS Air Quality Telemetry)*  
+> 💻 **Public GitHub Repository**: [https://github.com/Kabirroy12345/Digital_Twin](https://github.com/Kabirroy12345/Digital_Twin)  
+> 🏥 **Physician Console**: Interactive cohort triaging, clinical CDS, What-If simulation sandbox, and doctor summary PDF export.
 
 ---
 
@@ -56,7 +56,29 @@ Updated: October 2026 • Certified Clean Submission
 | **Competition Track** | **Digital Twin Challenge 2026 (Happiest Health)** |
 | **Target Summit** | Reimagining & Reforming Healthcare in India Summit 2026 (Bengaluru, 20 Nov 2026) |
 | **Repository URL** | [https://github.com/Kabirroy12345/Digital_Twin.git](https://github.com/Kabirroy12345/Digital_Twin.git) |
+| **Live Web Cockpit** | [https://kabirroy12345.github.io/Digital_Twin/](https://kabirroy12345.github.io/Digital_Twin/) |
 | **License** | **MIT Open-Source License** ([`LICENSE`](LICENSE)) |
+
+---
+
+## 📋 Official Submission Checklist (Evaluation Criteria Compliance)
+
+The following checklist directly maps to the official **12-Point Submission Criteria** required by the Happiest Health expert and technical evaluation panel:
+
+| # | Official Submission Criteria (Happiest Health) | Compliance Status | Verified Repository Location / Deliverable |
+|:---:|:---|:---:|:---|
+| **1** | **Team Details** | ✅ Included | [Section 1: Team & Institutional Details](#-1-team--institutional-details) (Team Lead: Kabir Roy) |
+| **2** | **College / Incubator Information** | ✅ Included | [Section 1: Team & Institutional Details](#-1-team--institutional-details) |
+| **3** | **Project Title** | ✅ Included | **PulmoTwin: Multimodal Cardiopulmonary Digital Twin** |
+| **4** | **Problem Statement** | ✅ Included | [Section 4: Problem Statement](#-4-problem-statement-indias-chronic-respiratory-burden) (India's 37.9M Asthma Burden & 42% Global Mortality Share) |
+| **5** | **Healthcare Use Case** | ✅ Included | [Section 5: Healthcare Use Case](#-5-healthcare-use-case-what-is-pulmotwin) (Cardiopulmonary Digital Twin & Proactive Intervention) |
+| **6** | **Technical Stack** | ✅ Included | [Section 6: Technical Stack](#️-6-technical-stack) (Python 3.11, Scikit-Learn, ODE differential kinetics, ABDM FHIR R4, ES6 JS) |
+| **7** | **AI/ML Model or Framework Details** | ✅ Included | [Section 7: AI/ML Model & Framework Details](#-7-aiml-model--framework-details) (Multi-Model Stacking Ensemble with 82.95% High-Risk Sensitivity) |
+| **8** | **Minimum 20-Minute Video** | ✅ Included | [Section 2: Minimum 20-Minute Official Demo Video](#-2-minimum-20-minute-official-demo-video-unlisted-youtube--ppt-walkthrough) + [Spoken Script](docs/DEMO_VIDEO_SCRIPT.md) |
+| **9** | **Open-Source License Details** | ✅ Included | [Section 12: Open-Source License](#-12-open-source-license) ([`LICENSE`](LICENSE) - MIT Open-Source) |
+| **10** | **Architecture Diagram (PDF/PPT format)** | ✅ Included | [`docs/Architecture_Diagram.pdf`](docs/Architecture_Diagram.pdf) (High-resolution 5-stage blueprint) |
+| **11** | **Presentation in PDF/PPT format** | ✅ Included | [`docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf`](docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf) (6-slide executive deck covering clinical outcomes) |
+| **12** | **Public Accessibility** | ✅ Verified | 100% public GitHub repo, all links & PDFs freely accessible without login |
 
 ---
 
@@ -289,9 +311,6 @@ Open your browser and navigate to:
 | **Personalize Treatment** | Counterfactual "What-If" sandbox simulating candidate therapies in silico | [`digital_twin/counterfactual.py`](digital_twin/counterfactual.py) |
 | **Bilingual Indian Realities** | 1-click dynamic English and Hindi UI, voice input, and emergency 108/112 protocols | [`web_ui/index.html`](web_ui/index.html) |
 | **Mandatory Documentation** | Presentation Deck PDF, Architecture PDF, Unlisted Video, MIT License | [`docs/`](docs/) & [`LICENSE`](LICENSE) |
-
----
-
 
 ---
 
