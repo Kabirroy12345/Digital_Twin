@@ -13,6 +13,8 @@ Updated: October 2026 • Certified Clean Submission
 **Team**: Kabir Roy (Team Lead, rakeshkabir@gmail.com)  
 **Official Video Link**: [https://www.youtube.com/watch?v=i7NJstq8_ZE](https://www.youtube.com/watch?v=i7NJstq8_ZE)  
 **Live Interactive Cockpit**: [https://kabirroy12345.github.io/Digital_Twin/](https://kabirroy12345.github.io/Digital_Twin/)  
+**Pitch Deck Presentation PDF**: [`docs/PulmoTwin_Pitch_Deck.pdf`](Digital_Twin_Challenge_2026_Pitch_Deck.pdf)  
+**Architecture Diagram PDF**: [`docs/PulmoTwin_Architecture_Diagram.pdf`](Architecture_Diagram.pdf)  
 
 ---
 

@@ -33,8 +33,11 @@ DIGITAL_TWIN_VIEW = """
             <button id="btn-refresh-dt" class="btn-dt" aria-label="Sync Telemetry" onclick="refreshDigitalTwinData()" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
               <i class="fa-solid fa-arrows-rotate"></i> Sync Telemetry
             </button>
-            <a href="/docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf" target="_blank" style="background: #0284c7; color: white; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; text-decoration: none; display: flex; align-items: center; gap: 6px;">
+            <a href="docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf" target="_blank" style="background: #0284c7; color: white; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; text-decoration: none; display: flex; align-items: center; gap: 6px;">
               <i class="fa-solid fa-file-pdf"></i> Pitch Deck (PDF)
+            </a>
+            <a href="docs/Architecture_Diagram.pdf" target="_blank" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); color: white; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; text-decoration: none; display: flex; align-items: center; gap: 6px;">
+              <i class="fa-solid fa-sitemap"></i> Architecture Diagram (PDF)
             </a>
           </div>
         </div>

@@ -76,8 +76,8 @@ The following checklist directly maps to the official **12-Point Submission Crit
 | **7** | **AI/ML Model or Framework Details** | ✅ Included | [Section 7: AI/ML Model & Framework Details](#-7-aiml-model--framework-details) (Multi-Model Stacking Ensemble with 82.95% High-Risk Sensitivity) |
 | **8** | **Minimum 20-Minute Video** | ✅ Complete | [▶️ Watch 23-Min Demo on YouTube](https://www.youtube.com/watch?v=i7NJstq8_ZE) • [Section 2: Video Walkthrough](#-2-minimum-20-minute-official-demo-video-youtube--ppt-walkthrough) + [Spoken Script](docs/DEMO_VIDEO_SCRIPT.md) |
 | **9** | **Open-Source License Details** | ✅ Included | [Section 12: Open-Source License](#-12-open-source-license) ([`LICENSE`](LICENSE) - MIT Open-Source) |
-| **10** | **Architecture Diagram (PDF/PPT format)** | ✅ Included | [`docs/Architecture_Diagram.pdf`](docs/Architecture_Diagram.pdf) (High-resolution 5-stage blueprint) |
-| **11** | **Presentation in PDF/PPT format** | ✅ Included | [`docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf`](docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf) (6-slide executive deck covering clinical outcomes) |
+| **10** | **Architecture Diagram (PDF/PPT format)** | ✅ Complete | [`docs/Architecture_Diagram.pdf`](docs/Architecture_Diagram.pdf) *(or [`PulmoTwin_Architecture_Diagram.pdf`](docs/PulmoTwin_Architecture_Diagram.pdf))* |
+| **11** | **Presentation in PDF/PPT format** | ✅ Complete | [`docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf`](docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf) *(or [`PulmoTwin_Pitch_Deck.pdf`](docs/PulmoTwin_Pitch_Deck.pdf))* |
 | **12** | **Public Accessibility** | ✅ Verified | 100% public GitHub repo, all links & PDFs freely accessible without login |
 
 ---
@@ -108,12 +108,12 @@ The following checklist directly maps to the official **12-Point Submission Crit
 In compliance with the Digital Twin Challenge submission guidelines, all presentation slides and architectural blueprints are available directly in the repository:
 
 1. **📊 Presentation Deck (PDF/PPT format):**  
-   [`docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf`](docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf)  
-   *Comprehensive 6-slide executive deck covering clinical motivation, digital twin architecture, counterfactual simulation, safety rails, and summit translation roadmap.*
+   [`docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf`](docs/Digital_Twin_Challenge_2026_Pitch_Deck.pdf) *(also available as [`docs/PulmoTwin_Pitch_Deck.pdf`](docs/PulmoTwin_Pitch_Deck.pdf))*  
+   *Official Happiest Health Summit Presentation Deck covering clinical motivation, digital twin architecture, counterfactual simulation, safety rails, and summit translation roadmap.*
 
 2. **🏗️ Architecture Diagram (PDF format):**  
-   [`docs/Architecture_Diagram.pdf`](docs/Architecture_Diagram.pdf)  
-   *High-resolution, 5-stage architectural blueprint detailing Multimodal Ingestion, Digital Twin Simulator, Counterfactual Reasoning, Safety Governance, and Clinical Decision Support.*
+   [`docs/Architecture_Diagram.pdf`](docs/Architecture_Diagram.pdf) *(also available as [`docs/PulmoTwin_Architecture_Diagram.pdf`](docs/PulmoTwin_Architecture_Diagram.pdf))*  
+   *Official High-resolution 5-stage architectural blueprint detailing Multimodal Ingestion, Digital Twin Simulator, Counterfactual Reasoning, Safety Governance, and Clinical Decision Support.*
 
 3. **📄 Open-Source License:**  
    [`LICENSE`](LICENSE) — Full MIT Open-Source License text.

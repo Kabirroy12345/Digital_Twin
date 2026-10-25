@@ -457,6 +457,10 @@ def serve_figures(filename):
 def serve_slideshow(filename):
     return send_from_directory(os.path.join(app.root_path, "slideshow"), filename)
 
+@app.route("/docs/<path:filename>")
+def serve_docs(filename):
+    return send_from_directory(os.path.join(app.root_path, "docs"), filename)
+
 # ==================== AUTHENTICATION & PROFILE ROUTES ====================
 
 @app.route("/api/auth/signup", methods=["POST"])
